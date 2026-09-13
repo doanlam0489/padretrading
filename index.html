@@ -3,7 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Padre Trading — Onchain Trading Terminal</title>
+
+<title>Padre Trading | Onchain Memecoin & Crypto Trading Terminal</title>
+<meta name="description" content="Padre Trading is a fast, self-custody terminal for trading memecoins and crypto onchain across Solana, Ethereum, Base, and BNB Chain — real-time data, wallet tracking, and fee cashback.">
+<meta name="keywords" content="onchain trading terminal, memecoin trading terminal, crypto trading terminal, multi-chain trading, self-custody trading, Padre Trading, wallet tracker, copy trading">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://padretrading.app/">
+
+<!-- Google Search Console verification -->
+<meta name="google-site-verification" content="ou1lOuBUzwmfHWQ9CeHdJwpDNwmcPGIRPgCT9qHuFzk" />
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Padre Trading">
+<meta property="og:title" content="Padre Trading | Onchain Memecoin & Crypto Trading Terminal">
+<meta property="og:description" content="A fast, self-custody terminal for trading memecoins and crypto onchain across Solana, Ethereum, Base, and BNB Chain.">
+<meta property="og:url" content="https://padretrading.app/">
+<meta property="og:image" content="https://padretrading.app/icons/icon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Padre Trading | Onchain Memecoin & Crypto Trading Terminal">
+<meta name="twitter:description" content="A fast, self-custody terminal for trading memecoins and crypto onchain across Solana, Ethereum, Base, and BNB Chain.">
+<meta name="twitter:image" content="https://padretrading.app/icons/icon-512.png">
+<meta name="theme-color" content="#08080A">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
+<link rel="shortcut icon" href="/icons/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Padre Trading",
+  "url": "https://padretrading.app/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "description": "Self-custody terminal for trading memecoins and crypto onchain across Solana, Ethereum, Base, and BNB Chain."
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -223,6 +264,18 @@
     .terminal-body{ grid-template-columns:1fr; }
   }
 
+  /* chain strip */
+  .chain-strip{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    flex-wrap:wrap; padding:34px 5vw 0; text-align:center;
+  }
+  .chain-label{ font-size:12.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em; }
+  .chain-pills{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+  .chain-pill{
+    font-size:13px; font-weight:600; padding:8px 16px; border-radius:999px;
+    border:1px solid var(--line); background:var(--surface); color:var(--text-soft);
+  }
+
   /* ================= SECTIONS ================= */
   section{ padding:clamp(64px,10vw,110px) 5vw; border-top:1px solid var(--line-soft); }
   .section-head{ max-width:620px; margin:0 auto clamp(40px,6vw,60px); text-align:center; }
@@ -343,7 +396,7 @@
   </div>
   <div class="nav-cta-desktop">
     <a class="link" href="#features">Features</a>
-    <a class="link" href="#circuit">The Circuit</a>
+    <a class="link" href="#circuit">Rewards</a>
     <a class="link" href="#community">Community</a>
     <a class="link" href="#faqs">FAQs</a>
     <a class="btn btn-flame" href="#">Launch App</a>
@@ -353,7 +406,7 @@
 
 <div class="mobile-panel" id="mobilePanel">
   <a class="link" href="#features">Features</a>
-  <a class="link" href="#circuit">The Circuit</a>
+  <a class="link" href="#circuit">Rewards</a>
   <a class="link" href="#community">Community</a>
   <a class="link" href="#faqs">FAQs</a>
   <a class="btn btn-flame btn-block" href="#">Launch App</a>
@@ -364,17 +417,17 @@
   <div class="hero-glow"></div>
   <span class="eyebrow"><span class="pulse"></span>Built for traders, by traders</span>
   <h1>Your edge,<br><span class="accent">fully onchain.</span></h1>
-  <p class="lead">Padre Trading is a fast, self-custody terminal for buying, selling, and tracking crypto onchain — real-time data and automation, without giving up control of your keys.</p>
+  <p class="lead">Padre Trading is a fast, self-custody terminal for buying, selling, and tracking crypto across Solana, Ethereum, Base, and BNB Chain — real-time data and automation, without giving up control of your keys.</p>
   <div class="btn-row">
     <a href="#" class="btn btn-flame">Start Trading →</a>
     <a href="#features" class="btn btn-ghost">See what's inside</a>
   </div>
 
   <div class="stat-strip reveal">
-    <div><div class="num">&lt;80ms</div><div class="label">Order Speed</div></div>
-    <div><div class="num">$1.2B+</div><div class="label">Volume Routed</div></div>
-    <div><div class="num">140K+</div><div class="label">Wallets Connected</div></div>
-    <div><div class="num">24/7</div><div class="label">Live Support</div></div>
+    <div><div class="num">~300ms</div><div class="label">Order Speed</div></div>
+    <div><div class="num">4 Chains</div><div class="label">Solana · ETH · Base · BNB</div></div>
+    <div><div class="num">10K+</div><div class="label">Wallets Trackable</div></div>
+    <div><div class="num">45%</div><div class="label">Max Fee Cashback</div></div>
   </div>
 </section>
 
@@ -404,9 +457,19 @@
   </div>
 </div>
 
+<div class="chain-strip reveal">
+  <span class="chain-label">Trade across</span>
+  <div class="chain-pills">
+    <span class="chain-pill">Solana</span>
+    <span class="chain-pill">Ethereum</span>
+    <span class="chain-pill">Base</span>
+    <span class="chain-pill">BNB Chain</span>
+  </div>
+</div>
+
 <section id="features">
   <div class="section-head reveal">
-    <span class="tag">One Terminal</span>
+    <span class="tag">One Terminal, Every Chain</span>
     <h2>Everything you need, in one place</h2>
     <p>Padre Trading brings order execution, tracking, and analysis together — built for traders who need speed without giving up control.</p>
   </div>
@@ -418,13 +481,13 @@
     </div>
     <div class="feat">
       <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12H10L12 6L14 18L16 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3>Limit & DCA Orders</h3>
-      <p>Set entries and exits in advance, or automate steady accumulation over time.</p>
+      <h3>Limit, Stop-Loss & Take-Profit</h3>
+      <p>Queue entries and exits in advance, including automated stop-loss and take-profit levels.</p>
     </div>
     <div class="feat">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="7" height="14" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="13" y="5" width="7" height="14" rx="1.5" stroke="currentColor" stroke-width="2"/></svg></div>
-      <h3>Multi-Wallet</h3>
-      <p>Manage several wallets at once — split, combine, and withdraw in a few clicks.</p>
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12H21M12 3C14.5 6 14.5 18 12 21C9.5 18 9.5 6 12 3Z" stroke="currentColor" stroke-width="2"/></svg></div>
+      <h3>Multi-Chain Execution</h3>
+      <p>Trade Solana, Ethereum, Base, and BNB Chain from one screen — no switching apps.</p>
     </div>
     <div class="feat">
       <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 8L21 8L21 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 8L15 14L11 10L3 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -434,27 +497,32 @@
     <div class="feat">
       <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="M20 20L15.5 15.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
       <h3>Wallet Tracker</h3>
-      <p>Tag any wallet and get a live feed of its activity the moment it happens.</p>
+      <p>Tag and follow thousands of wallets, with alerts the moment they buy or sell.</p>
     </div>
     <div class="feat">
       <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M12 20V4M20 20V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-      <h3>Portfolio Analyzer</h3>
-      <p>See holdings, performance, and history at a glance — yours or anyone else's.</p>
+      <h3>Portfolio & PnL</h3>
+      <p>See holdings, performance, and history at a glance, with shareable PnL cards.</p>
+    </div>
+    <div class="feat">
+      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L4 7V12C4 16.5 7.4 20.4 12 21C16.6 20.4 20 16.5 20 12V7L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <h3>Trenches</h3>
+      <p>Track freshly launched tokens the moment they hit the bonding curve, with dev and holder signals.</p>
     </div>
   </div>
 </section>
 
 <section id="circuit">
   <div class="circuit reveal">
-    <span class="tag">Introducing</span>
-    <h2>THE CIRCUIT</h2>
-    <p>Climb the ranks, unlock rewards, and see your standing update in real time as you trade.</p>
-    <a href="#" class="btn btn-flame">Enter the Circuit →</a>
+    <span class="tag">Rewards</span>
+    <h2>Get paid to trade</h2>
+    <p>Every trade earns fee cashback — 10% by default, up to 45% when you join through a referral. No lockups, no extra steps.</p>
+    <a href="#" class="btn btn-flame">View Referral Tiers →</a>
     <div class="custody-grid">
-      <div><h4>Self-Custody</h4><p>Your keys never leave your control.</p></div>
-      <div><h4>Verifiable</h4><p>Every trade settles onchain, in the open.</p></div>
-      <div><h4>Hardware-Ready</h4><p>Pair with a hardware wallet for extra safety.</p></div>
-      <div><h4>Enterprise-Grade</h4><p>Infrastructure built to hold up under load.</p></div>
+      <div><h4>Self-Custody</h4><p>Your keys never leave your wallet — Padre Trading never holds your funds.</p></div>
+      <div><h4>Verifiable</h4><p>Every trade settles onchain, in the open, no black box.</p></div>
+      <div><h4>Multi-Chain</h4><p>Solana, Ethereum, Base, and BNB Chain in a single account.</p></div>
+      <div><h4>Enterprise-Grade</h4><p>Infrastructure built to hold up when volume spikes.</p></div>
     </div>
   </div>
 </section>
@@ -482,19 +550,23 @@
     </details>
     <details>
       <summary>Do I keep control of my funds?<span class="plus"></span></summary>
-      <p>Yes. Padre Trading never holds your assets — your wallet, your keys, at every step.</p>
+      <p>Yes. Padre Trading is non-custodial — your wallet holds the keys, transactions are signed locally, and there's no deposit address to trust.</p>
     </details>
     <details>
-      <summary>Is there a fee to use it?<span class="plus"></span></summary>
-      <p>A small fee applies per executed trade. There are no charges for browsing data or setting up alerts.</p>
+      <summary>Which chains are supported?<span class="plus"></span></summary>
+      <p>Solana, Ethereum, Base, and BNB Chain, all switchable from the same screen without changing apps.</p>
     </details>
     <details>
-      <summary>What happens if I lose connection mid-trade?<span class="plus"></span></summary>
-      <p>Orders that are already submitted continue to be processed onchain independently of your connection.</p>
+      <summary>What does trading cost?<span class="plus"></span></summary>
+      <p>A small platform fee per executed trade, plus network gas and any slippage — standard costs of trading onchain. Fee cashback offsets part of this automatically.</p>
     </details>
     <details>
-      <summary>Where can I get help?<span class="plus"></span></summary>
-      <p>Support is available directly in the app, alongside documentation covering every feature in depth.</p>
+      <summary>How does the cashback work?<span class="plus"></span></summary>
+      <p>Every account gets a default cashback rate on trading fees, rising to a higher tier when you sign up through a referral link.</p>
+    </details>
+    <details>
+      <summary>Is there a mobile app?<span class="plus"></span></summary>
+      <p>Padre Trading runs as a installable web app (PWA), so it works like a native app on both desktop and mobile without an app-store download.</p>
     </details>
   </div>
 </section>
@@ -520,7 +592,7 @@
     <div>
       <h5>Product</h5>
       <a href="#features">Features</a>
-      <a href="#circuit">The Circuit</a>
+      <a href="#circuit">Rewards</a>
       <a href="#">Documentation</a>
     </div>
     <div>

@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Padre Trading</title>
+<title>Padre Trading — Onchain Trading Terminal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --base:#0B0F14;
-    --surface:#12181F;
-    --line:#232B35;
-    --text:#ECEFF3;
-    --text-soft:#8993A3;
-    --gold:#C9A227;
-    --teal:#3FA796;
+    --base:#0A0A0C;
+    --surface:#141417;
+    --surface-2:#1B1B20;
+    --line:#28282E;
+    --text:#F5F5F2;
+    --text-soft:#96969F;
+    --flame:#FF5A36;
+    --flame-dim:#5C2718;
+    --volt:#C6FF3D;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -26,272 +28,376 @@
     font-family:'Inter',sans-serif;
     -webkit-font-smoothing:antialiased;
   }
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important;}
-  }
+  h1,h2,h3,.display{ font-family:'Space Grotesk',sans-serif; }
+  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+  a{ color:inherit; }
+  .wrap{ max-width:1240px; margin:0 auto; padding-left:6vw; padding-right:6vw; }
 
   /* ---- nav ---- */
   nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:28px 6vw;
+    position:sticky; top:0; z-index:50;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:20px 6vw;
+    background:rgba(10,10,12,0.85);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .logo{
-    font-family:'Newsreader',serif;
-    font-size:22px;
-    letter-spacing:0.01em;
+  .logo{ display:flex; align-items:center; gap:10px; font-weight:600; font-size:18px; }
+  .logo .mark{
+    width:26px; height:26px; border-radius:6px;
+    background:linear-gradient(135deg, var(--flame), #FF9B36);
+    display:inline-block;
   }
-  .logo em{ color:var(--gold); font-style:italic; }
-  nav a{
-    color:var(--text-soft);
-    text-decoration:none;
-    font-size:14px;
-    margin-left:32px;
-    transition:color .2s ease;
+  .nav-links{ display:flex; align-items:center; gap:34px; }
+  nav a.link{ font-size:14px; color:var(--text-soft); text-decoration:none; transition:color .2s; }
+  nav a.link:hover{ color:var(--text); }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:12px 22px; border-radius:8px; font-size:14px; font-weight:600;
+    text-decoration:none; border:1px solid transparent; cursor:pointer;
   }
-  nav a:hover{ color:var(--text); }
-  .nav-links{ display:flex; align-items:center; }
-  .nav-cta{
-    border:1px solid var(--line);
-    padding:8px 18px;
-    border-radius:2px;
-    color:var(--text) !important;
-  }
-  .nav-cta:hover{ border-color:var(--gold); }
-
-  /* ---- ticker ---- */
-  .ticker-wrap{
-    border-bottom:1px solid var(--line);
-    overflow:hidden;
-    background:var(--surface);
-  }
-  .ticker{
-    display:flex;
-    width:max-content;
-    white-space:nowrap;
-    padding:10px 0;
-    animation:scroll 32s linear infinite;
-  }
-  .ticker span{
-    font-size:13px;
-    color:var(--text-soft);
-    padding:0 28px;
-    border-right:1px solid var(--line);
-  }
-  .ticker span b{ color:var(--text); font-weight:500; }
-  .up{ color:var(--teal); }
-  .down{ color:#C9645A; }
-  @keyframes scroll{
-    from{ transform:translateX(0); }
-    to{ transform:translateX(-50%); }
-  }
+  .btn-flame{ background:var(--flame); color:#140A06; }
+  .btn-flame:hover{ background:#FF7754; }
+  .btn-ghost{ border-color:var(--line); color:var(--text); }
+  .btn-ghost:hover{ border-color:var(--text-soft); }
 
   /* ---- hero ---- */
   .hero{
-    padding:110px 6vw 90px;
-    max-width:1200px;
-    margin:0 auto;
+    padding:110px 6vw 60px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
   }
-  .hero .kicker{
-    font-size:14px;
-    color:var(--text-soft);
-    margin-bottom:22px;
+  .hero::before{
+    content:"";
+    position:absolute; top:-200px; left:50%; transform:translateX(-50%);
+    width:900px; height:500px;
+    background:radial-gradient(closest-side, var(--flame-dim), transparent 70%);
+    opacity:.55; pointer-events:none;
+  }
+  .hero .eyebrow{
+    display:inline-block; font-size:13px; color:var(--flame);
+    border:1px solid var(--flame-dim); background:rgba(255,90,54,.08);
+    padding:6px 14px; border-radius:999px; margin-bottom:26px;
+    position:relative;
   }
   .hero h1{
-    font-family:'Newsreader',serif;
-    font-weight:400;
-    font-size:clamp(40px, 6vw, 74px);
-    line-height:1.08;
-    max-width:16ch;
-    margin:0 0 28px;
+    font-size:clamp(38px, 6.4vw, 76px);
+    line-height:1.04; font-weight:700; letter-spacing:-0.02em;
+    margin:0 0 22px; position:relative;
   }
-  .hero h1 i{ font-style:italic; color:var(--gold); }
   .hero p{
-    font-size:18px;
-    line-height:1.6;
-    color:var(--text-soft);
-    max-width:52ch;
-    margin:0 0 40px;
+    font-size:18px; line-height:1.6; color:var(--text-soft);
+    max-width:56ch; margin:0 auto 36px; position:relative;
   }
-  .btn-row{ display:flex; gap:16px; flex-wrap:wrap; }
-  .btn{
-    display:inline-block;
-    padding:14px 28px;
-    border-radius:2px;
-    text-decoration:none;
-    font-size:15px;
-    font-weight:500;
-  }
-  .btn-primary{
-    background:var(--gold);
-    color:#14100A;
-  }
-  .btn-secondary{
-    border:1px solid var(--line);
-    color:var(--text);
-  }
-  .btn-secondary:hover{ border-color:var(--text-soft); }
+  .hero .btn-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; }
 
-  /* ---- stats/features ---- */
-  .grid-section{
-    border-top:1px solid var(--line);
-    padding:70px 6vw;
-    max-width:1200px;
-    margin:0 auto;
+  /* ---- terminal mock ---- */
+  .terminal{
+    margin:70px auto 0; max-width:1040px;
+    border:1px solid var(--line); border-radius:16px;
+    background:var(--surface); overflow:hidden;
+    box-shadow:0 40px 100px -40px rgba(255,90,54,.25);
   }
-  .grid-section h2{
-    font-family:'Newsreader',serif;
-    font-weight:400;
-    font-size:32px;
-    margin:0 0 50px;
-    max-width:20ch;
+  .terminal-top{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 16px; border-bottom:1px solid var(--line);
   }
-  .cols{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:0;
-    border-top:1px solid var(--line);
-    border-left:1px solid var(--line);
+  .dot{ width:9px; height:9px; border-radius:50%; background:#3A3A41; }
+  .terminal-tabs{
+    display:flex; gap:0; overflow-x:auto;
+    border-bottom:1px solid var(--line); padding:0 16px;
   }
-  .cols .col{
-    padding:36px 32px;
-    border-right:1px solid var(--line);
-    border-bottom:1px solid var(--line);
+  .terminal-tabs span{
+    padding:14px 16px; font-size:13px; color:var(--text-soft); white-space:nowrap;
+    border-bottom:2px solid transparent;
   }
-  .col .num{
-    font-family:'Newsreader',serif;
-    font-size:34px;
-    color:var(--gold);
-    margin-bottom:10px;
+  .terminal-tabs span.active{ color:var(--text); border-color:var(--flame); }
+  .terminal-body{ padding:26px; display:grid; grid-template-columns:1.4fr 1fr; gap:22px; }
+  .chart-mock{
+    background:var(--surface-2); border:1px solid var(--line); border-radius:10px;
+    height:220px; padding:16px; display:flex; align-items:flex-end; gap:4px;
   }
-  .col h3{
-    font-size:16px;
-    font-weight:500;
-    margin:0 0 10px;
+  .chart-mock i{
+    display:block; flex:1; background:linear-gradient(180deg, var(--volt), transparent);
+    opacity:.85; border-radius:2px 2px 0 0;
   }
-  .col p{
-    font-size:14px;
-    line-height:1.6;
-    color:var(--text-soft);
-    margin:0;
+  .side-mock{ display:flex; flex-direction:column; gap:10px; }
+  .row-mock{
+    background:var(--surface-2); border:1px solid var(--line); border-radius:8px;
+    padding:12px 14px; display:flex; justify-content:space-between; font-size:13px;
   }
+  .row-mock .up{ color:var(--volt); }
+  .row-mock .down{ color:var(--flame); }
+  @media (max-width:760px){ .terminal-body{ grid-template-columns:1fr; } }
 
-  /* ---- cta band ---- */
-  .cta-band{
-    border-top:1px solid var(--line);
-    padding:80px 6vw;
-    text-align:left;
-  }
-  .cta-inner{
-    max-width:1200px;
-    margin:0 auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:28px;
-  }
-  .cta-inner h2{
-    font-family:'Newsreader',serif;
-    font-weight:400;
-    font-size:30px;
-    margin:0;
-    max-width:18ch;
-  }
+  /* ---- section shell ---- */
+  section{ padding:100px 6vw; border-top:1px solid var(--line); }
+  .section-head{ max-width:640px; margin:0 auto 56px; text-align:center; }
+  .section-head .tag{ color:var(--flame); font-size:13px; margin-bottom:14px; display:block; }
+  .section-head h2{ font-size:clamp(28px,4vw,42px); margin:0 0 16px; font-weight:700; letter-spacing:-0.01em; }
+  .section-head p{ color:var(--text-soft); font-size:16px; line-height:1.6; margin:0; }
 
-  footer{
-    border-top:1px solid var(--line);
-    padding:28px 6vw;
-    display:flex;
-    justify-content:space-between;
-    color:var(--text-soft);
-    font-size:13px;
+  /* ---- feature grid ---- */
+  .feat-grid{
+    max-width:1100px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:16px; overflow:hidden;
   }
+  .feat{ background:var(--surface); padding:32px 28px; }
+  .feat .icon{
+    width:38px; height:38px; border-radius:9px;
+    background:rgba(255,90,54,.1); border:1px solid var(--flame-dim);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
+    color:var(--flame); font-weight:600; font-size:15px;
+  }
+  .feat h3{ font-size:17px; margin:0 0 10px; }
+  .feat p{ font-size:14px; line-height:1.6; color:var(--text-soft); margin:0; }
+  @media (max-width:900px){ .feat-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px){ .feat-grid{ grid-template-columns:1fr; } }
 
-  @media (max-width:760px){
-    .cols{ grid-template-columns:1fr; }
-    nav a:not(.nav-cta){ display:none; }
-    footer{ flex-direction:column; gap:8px; }
+  /* ---- circuit / rewards banner ---- */
+  .circuit{
+    border-radius:20px; border:1px solid var(--line);
+    background:linear-gradient(135deg, #16100D, #0A0A0C 60%);
+    padding:70px 6vw; text-align:center; position:relative; overflow:hidden;
   }
+  .circuit::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 80% 20%, rgba(255,90,54,.18), transparent 55%);
+  }
+  .circuit .tag{ color:var(--volt); font-size:13px; letter-spacing:.02em; position:relative; }
+  .circuit h2{ font-size:clamp(30px,5vw,54px); margin:16px 0 18px; position:relative; }
+  .circuit p{ color:var(--text-soft); max-width:52ch; margin:0 auto 34px; position:relative; }
+
+  /* ---- custody row ---- */
+  .custody-grid{
+    max-width:1000px; margin:44px auto 0;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:26px; text-align:center;
+  }
+  .custody-grid div h4{ font-size:15px; margin:0 0 8px; }
+  .custody-grid div p{ font-size:13px; color:var(--text-soft); margin:0; }
+  @media (max-width:700px){ .custody-grid{ grid-template-columns:1fr 1fr; } }
+
+  /* ---- partners marquee ---- */
+  .marquee-wrap{ overflow:hidden; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:26px 0; }
+  .marquee{ display:flex; width:max-content; gap:60px; animation:slide 26s linear infinite; }
+  .marquee span{ font-size:14px; color:var(--text-soft); white-space:nowrap; letter-spacing:.03em; }
+  @keyframes slide{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---- faq ---- */
+  .faq{ max-width:760px; margin:0 auto; }
+  details{
+    border-bottom:1px solid var(--line); padding:20px 0;
+  }
+  summary{
+    cursor:pointer; list-style:none; display:flex; justify-content:space-between;
+    align-items:center; font-size:15px; font-weight:500;
+  }
+  summary::-webkit-details-marker{ display:none; }
+  summary::after{ content:"+"; color:var(--flame); font-size:20px; }
+  details[open] summary::after{ content:"–"; }
+  details p{ color:var(--text-soft); font-size:14px; line-height:1.6; margin:14px 0 0; }
+
+  /* ---- closing cta ---- */
+  .closing{ text-align:center; padding-bottom:60px; }
+  .closing h2{ font-size:clamp(30px,5vw,50px); margin:0 0 30px; }
+
+  footer{ border-top:1px solid var(--line); padding:60px 6vw 30px; }
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr repeat(3,1fr); gap:36px;
+    max-width:1240px; margin:0 auto 40px;
+  }
+  .foot-grid h5{ font-size:13px; color:var(--text-soft); margin:0 0 16px; font-weight:500; }
+  .foot-grid a{ display:block; font-size:14px; color:var(--text); text-decoration:none; margin-bottom:10px; }
+  .foot-grid a:hover{ color:var(--flame); }
+  .foot-bottom{
+    max-width:1240px; margin:0 auto; display:flex; justify-content:space-between;
+    color:var(--text-soft); font-size:13px; border-top:1px solid var(--line); padding-top:24px; flex-wrap:wrap; gap:10px;
+  }
+  @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; } }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">Padre <em>Trading</em></div>
+  <div class="logo"><span class="mark"></span>Padre Trading</div>
   <div class="nav-links">
-    <a href="#approach">Approach</a>
-    <a href="#contact" class="nav-cta">Get in touch</a>
+    <a class="link" href="#features">Features</a>
+    <a class="link" href="#circuit">The Circuit</a>
+    <a class="link" href="#community">Community</a>
+    <a class="link" href="#faqs">FAQs</a>
+    <a class="btn btn-flame" href="#">Launch App</a>
   </div>
 </nav>
 
-<div class="ticker-wrap">
-  <div class="ticker" id="ticker"></div>
+<section class="hero" style="border-top:none;">
+  <span class="eyebrow">Built for traders, by traders</span>
+  <h1>Your edge,<br>fully onchain.</h1>
+  <p>Padre Trading is a fast, self-custody terminal for buying, selling, and tracking crypto onchain — real-time data and automation, without giving up control of your keys.</p>
+  <div class="btn-row">
+    <a href="#" class="btn btn-flame">Start Trading</a>
+    <a href="#features" class="btn btn-ghost">See what's inside</a>
+  </div>
+
+  <div class="terminal">
+    <div class="terminal-top"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <div class="terminal-tabs">
+      <span class="active">Trade</span><span>Explorer</span><span>Trenches</span>
+      <span>Perps</span><span>Trackers</span><span>Holdings</span><span>Analyzer</span>
+    </div>
+    <div class="terminal-body">
+      <div class="chart-mock">
+        <i style="height:30%"></i><i style="height:55%"></i><i style="height:40%"></i>
+        <i style="height:70%"></i><i style="height:50%"></i><i style="height:85%"></i>
+        <i style="height:60%"></i><i style="height:95%"></i><i style="height:75%"></i>
+        <i style="height:65%"></i><i style="height:90%"></i><i style="height:80%"></i>
+      </div>
+      <div class="side-mock">
+        <div class="row-mock"><span>PADRE / USDC</span><span class="up">+18.4%</span></div>
+        <div class="row-mock"><span>SOL / USDC</span><span class="up">+3.1%</span></div>
+        <div class="row-mock"><span>WATCHLIST alert</span><span class="down">-6.2%</span></div>
+        <div class="row-mock"><span>Wallet #2 buy filled</span><span class="up">done</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="section-head">
+    <span class="tag">ONE TERMINAL</span>
+    <h2>Everything you need, in one place</h2>
+    <p>Padre Trading brings order execution, tracking, and analysis together — designed for traders who need speed without sacrificing control.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat">
+      <div class="icon">M</div>
+      <h3>Market Orders</h3>
+      <p>Buy and sell in a single click, tuned to fill fast when timing is everything.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">L</div>
+      <h3>Limit & DCA Orders</h3>
+      <p>Set your entries and exits in advance, or automate steady accumulation over time.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">W</div>
+      <h3>Multi-Wallet</h3>
+      <p>Manage several wallets at once — split, combine, and withdraw in a few clicks.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">C</div>
+      <h3>Copy Trading</h3>
+      <p>Mirror a wallet's buys and sells with rules you control, down to the size and delay.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">T</div>
+      <h3>Wallet Tracker</h3>
+      <p>Tag any wallet and get a live feed of its activity, the moment it happens.</p>
+    </div>
+    <div class="feat">
+      <div class="icon">A</div>
+      <h3>Portfolio Analyzer</h3>
+      <p>See holdings, performance, and history at a glance — yours or anyone else's.</p>
+    </div>
+  </div>
+</section>
+
+<section id="circuit">
+  <div class="circuit">
+    <span class="tag">INTRODUCING</span>
+    <h2>THE CIRCUIT</h2>
+    <p>Climb the ranks, unlock rewards, and see your standing update in real time as you trade.</p>
+    <a href="#" class="btn btn-flame">Enter the Circuit</a>
+    <div class="custody-grid">
+      <div><h4>Self-Custody</h4><p>Your keys never leave your control.</p></div>
+      <div><h4>Verifiable</h4><p>Every trade settles onchain, in the open.</p></div>
+      <div><h4>Hardware-Ready</h4><p>Pair with a hardware wallet for extra safety.</p></div>
+      <div><h4>Enterprise-Grade</h4><p>Infrastructure built to hold up under load.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="community" style="padding-bottom:0;">
+  <div class="section-head">
+    <span class="tag">COMMUNITY</span>
+    <h2>Built alongside the people who trade on it</h2>
+    <p>Padre Trading works with projects and communities across the ecosystem to keep the terminal sharp and the culture honest.</p>
+  </div>
+</section>
+<div class="marquee-wrap">
+  <div class="marquee" id="marquee"></div>
 </div>
 
-<section class="hero">
-  <div class="kicker">Padre Trading — padretrading.app</div>
-  <h1>Discipline is the only edge that <i>compounds</i>.</h1>
-  <p>We build a clear, repeatable process for markets — position sizing, risk limits, and execution rules that hold up when a trade goes against you, not just when it works.</p>
-  <div class="btn-row">
-    <a href="#contact" class="btn btn-primary">Get in touch</a>
-    <a href="#approach" class="btn btn-secondary">See the approach</a>
+<section id="faqs">
+  <div class="section-head">
+    <span class="tag">FAQs</span>
+    <h2>Questions, answered</h2>
+  </div>
+  <div class="faq">
+    <details open>
+      <summary>What is Padre Trading?</summary>
+      <p>A self-custody terminal for trading crypto onchain, combining execution tools, tracking, and analytics in one interface.</p>
+    </details>
+    <details>
+      <summary>Do I keep control of my funds?</summary>
+      <p>Yes. Padre Trading never holds your assets — your wallet, your keys, at every step.</p>
+    </details>
+    <details>
+      <summary>Is there a fee to use it?</summary>
+      <p>A small fee applies per executed trade. There are no charges for browsing data or setting up alerts.</p>
+    </details>
+    <details>
+      <summary>What happens if I lose connection mid-trade?</summary>
+      <p>Orders that are already submitted continue to be processed onchain independently of your connection.</p>
+    </details>
+    <details>
+      <summary>Where can I get help?</summary>
+      <p>Support is available directly in the app, alongside documentation covering every feature in depth.</p>
+    </details>
   </div>
 </section>
 
-<section class="grid-section" id="approach">
-  <h2>Three rules the process never breaks</h2>
-  <div class="cols">
-    <div class="col">
-      <div class="num">01</div>
-      <h3>Risk first, thesis second</h3>
-      <p>Every position starts with how much can be lost, not how much could be made.</p>
-    </div>
-    <div class="col">
-      <div class="num">02</div>
-      <h3>Written before entry</h3>
-      <p>No trade goes on without an entry, invalidation, and exit written down in advance.</p>
-    </div>
-    <div class="col">
-      <div class="num">03</div>
-      <h3>Reviewed after exit</h3>
-      <p>Every closed trade is logged against the plan — win or lose — so the process keeps improving.</p>
-    </div>
-  </div>
-</section>
-
-<section class="cta-band" id="contact">
-  <div class="cta-inner">
-    <h2>Want to follow along or work together?</h2>
-    <div class="btn-row">
-      <a href="mailto:hello@padretrading.app" class="btn btn-primary">hello@padretrading.app</a>
-    </div>
-  </div>
+<section class="closing" style="border-top:none;">
+  <h2>The market moves fast.<br>Trade like it.</h2>
+  <a href="#" class="btn btn-flame">Start Trading</a>
 </section>
 
 <footer>
-  <div>© <span id="year"></span> Padre Trading</div>
-  <div>padretrading.app</div>
+  <div class="foot-grid">
+    <div>
+      <div class="logo"><span class="mark"></span>Padre Trading</div>
+    </div>
+    <div>
+      <h5>Product</h5>
+      <a href="#features">Features</a>
+      <a href="#circuit">The Circuit</a>
+      <a href="#">Documentation</a>
+    </div>
+    <div>
+      <h5>Company</h5>
+      <a href="#">Careers</a>
+      <a href="#">Blog</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <div>
+      <h5>Community</h5>
+      <a href="#">Twitter / X</a>
+      <a href="#">Telegram</a>
+      <a href="#">Discord</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span id="year"></span> Padre Trading. All rights reserved.</span>
+    <span>padretrading.app</span>
+  </div>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Simple decorative ticker — placeholder values, not live data.
-  const items = [
-    ['EUR/USD','1.0842','up'],
-    ['SPX','5,812','up'],
-    ['BTC/USD','61,240','down'],
-    ['GOLD','2,398','up'],
-    ['US10Y','4.21%','down'],
-    ['NASDAQ','18,340','up']
-  ];
-  const row = items.map(([label,val,dir]) =>
-    `<span><b>${label}</b> ${val} <span class="${dir}">${dir === 'up' ? '▲' : '▼'}</span></span>`
-  ).join('');
-  document.getElementById('ticker').innerHTML = row + row; // doubled for seamless loop
+  const partners = ["SOLANA","PRIVY","MOONPAY","DEBRIDGE","SWITCHBOARD","RAYDIUM","HELIUS","TRADINGVIEW"];
+  const list = partners.map(p => `<span>${p}</span>`).join('');
+  document.getElementById('marquee').innerHTML = list + list;
 </script>
 
 </body>

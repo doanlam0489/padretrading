@@ -1,1 +1,298 @@
-Hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padre Trading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#0B0F14;
+    --surface:#12181F;
+    --line:#232B35;
+    --text:#ECEFF3;
+    --text-soft:#8993A3;
+    --gold:#C9A227;
+    --teal:#3FA796;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--base);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* ---- nav ---- */
+  nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 6vw;
+    border-bottom:1px solid var(--line);
+  }
+  .logo{
+    font-family:'Newsreader',serif;
+    font-size:22px;
+    letter-spacing:0.01em;
+  }
+  .logo em{ color:var(--gold); font-style:italic; }
+  nav a{
+    color:var(--text-soft);
+    text-decoration:none;
+    font-size:14px;
+    margin-left:32px;
+    transition:color .2s ease;
+  }
+  nav a:hover{ color:var(--text); }
+  .nav-links{ display:flex; align-items:center; }
+  .nav-cta{
+    border:1px solid var(--line);
+    padding:8px 18px;
+    border-radius:2px;
+    color:var(--text) !important;
+  }
+  .nav-cta:hover{ border-color:var(--gold); }
+
+  /* ---- ticker ---- */
+  .ticker-wrap{
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+    background:var(--surface);
+  }
+  .ticker{
+    display:flex;
+    width:max-content;
+    white-space:nowrap;
+    padding:10px 0;
+    animation:scroll 32s linear infinite;
+  }
+  .ticker span{
+    font-size:13px;
+    color:var(--text-soft);
+    padding:0 28px;
+    border-right:1px solid var(--line);
+  }
+  .ticker span b{ color:var(--text); font-weight:500; }
+  .up{ color:var(--teal); }
+  .down{ color:#C9645A; }
+  @keyframes scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+
+  /* ---- hero ---- */
+  .hero{
+    padding:110px 6vw 90px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .hero .kicker{
+    font-size:14px;
+    color:var(--text-soft);
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-family:'Newsreader',serif;
+    font-weight:400;
+    font-size:clamp(40px, 6vw, 74px);
+    line-height:1.08;
+    max-width:16ch;
+    margin:0 0 28px;
+  }
+  .hero h1 i{ font-style:italic; color:var(--gold); }
+  .hero p{
+    font-size:18px;
+    line-height:1.6;
+    color:var(--text-soft);
+    max-width:52ch;
+    margin:0 0 40px;
+  }
+  .btn-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:2px;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:500;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:#14100A;
+  }
+  .btn-secondary{
+    border:1px solid var(--line);
+    color:var(--text);
+  }
+  .btn-secondary:hover{ border-color:var(--text-soft); }
+
+  /* ---- stats/features ---- */
+  .grid-section{
+    border-top:1px solid var(--line);
+    padding:70px 6vw;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .grid-section h2{
+    font-family:'Newsreader',serif;
+    font-weight:400;
+    font-size:32px;
+    margin:0 0 50px;
+    max-width:20ch;
+  }
+  .cols{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0;
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  .cols .col{
+    padding:36px 32px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .col .num{
+    font-family:'Newsreader',serif;
+    font-size:34px;
+    color:var(--gold);
+    margin-bottom:10px;
+  }
+  .col h3{
+    font-size:16px;
+    font-weight:500;
+    margin:0 0 10px;
+  }
+  .col p{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--text-soft);
+    margin:0;
+  }
+
+  /* ---- cta band ---- */
+  .cta-band{
+    border-top:1px solid var(--line);
+    padding:80px 6vw;
+    text-align:left;
+  }
+  .cta-inner{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:28px;
+  }
+  .cta-inner h2{
+    font-family:'Newsreader',serif;
+    font-weight:400;
+    font-size:30px;
+    margin:0;
+    max-width:18ch;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:28px 6vw;
+    display:flex;
+    justify-content:space-between;
+    color:var(--text-soft);
+    font-size:13px;
+  }
+
+  @media (max-width:760px){
+    .cols{ grid-template-columns:1fr; }
+    nav a:not(.nav-cta){ display:none; }
+    footer{ flex-direction:column; gap:8px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Padre <em>Trading</em></div>
+  <div class="nav-links">
+    <a href="#approach">Approach</a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker"></div>
+</div>
+
+<section class="hero">
+  <div class="kicker">Padre Trading — padretrading.app</div>
+  <h1>Discipline is the only edge that <i>compounds</i>.</h1>
+  <p>We build a clear, repeatable process for markets — position sizing, risk limits, and execution rules that hold up when a trade goes against you, not just when it works.</p>
+  <div class="btn-row">
+    <a href="#contact" class="btn btn-primary">Get in touch</a>
+    <a href="#approach" class="btn btn-secondary">See the approach</a>
+  </div>
+</section>
+
+<section class="grid-section" id="approach">
+  <h2>Three rules the process never breaks</h2>
+  <div class="cols">
+    <div class="col">
+      <div class="num">01</div>
+      <h3>Risk first, thesis second</h3>
+      <p>Every position starts with how much can be lost, not how much could be made.</p>
+    </div>
+    <div class="col">
+      <div class="num">02</div>
+      <h3>Written before entry</h3>
+      <p>No trade goes on without an entry, invalidation, and exit written down in advance.</p>
+    </div>
+    <div class="col">
+      <div class="num">03</div>
+      <h3>Reviewed after exit</h3>
+      <p>Every closed trade is logged against the plan — win or lose — so the process keeps improving.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="cta-inner">
+    <h2>Want to follow along or work together?</h2>
+    <div class="btn-row">
+      <a href="mailto:hello@padretrading.app" class="btn btn-primary">hello@padretrading.app</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© <span id="year"></span> Padre Trading</div>
+  <div>padretrading.app</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Simple decorative ticker — placeholder values, not live data.
+  const items = [
+    ['EUR/USD','1.0842','up'],
+    ['SPX','5,812','up'],
+    ['BTC/USD','61,240','down'],
+    ['GOLD','2,398','up'],
+    ['US10Y','4.21%','down'],
+    ['NASDAQ','18,340','up']
+  ];
+  const row = items.map(([label,val,dir]) =>
+    `<span><b>${label}</b> ${val} <span class="${dir}">${dir === 'up' ? '▲' : '▼'}</span></span>`
+  ).join('');
+  document.getElementById('ticker').innerHTML = row + row; // doubled for seamless loop
+</script>
+
+</body>
+</html>

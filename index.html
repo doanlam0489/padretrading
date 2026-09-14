@@ -2,655 +2,512 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
-<title>Padre Trading | Onchain Memecoin & Crypto Trading Terminal</title>
-<meta name="description" content="Padre Trading is a fast, self-custody terminal for trading memecoins and crypto onchain across Solana, Ethereum, Base, and BNB Chain — real-time data, wallet tracking, and fee cashback.">
-<meta name="keywords" content="onchain trading terminal, memecoin trading terminal, crypto trading terminal, multi-chain trading, self-custody trading, Padre Trading, wallet tracker, copy trading">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://padretrading.app/">
-
-<!-- Google Search Console verification -->
-<meta name="google-site-verification" content="ou1lOuBUzwmfHWQ9CeHdJwpDNwmcPGIRPgCT9qHuFzk" />
-
-<!-- Open Graph / social sharing -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Padre Trading — A Daily Playbook for Padre Terminal, 35% Fee Cashback</title>
+<meta name="description" content="A practical trading playbook for Padre Terminal — session routines, position sizing, and exit discipline for self-custody trading across Solana, Ethereum, Base and BNB Chain. 35% fee cashback via this link.">
+<meta property="og:title" content="Padre Trading — A Daily Playbook for Padre Terminal">
+<meta property="og:description" content="Session routines, position sizing, and exit discipline for Padre Terminal traders. 35% fee cashback via this referral link.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Padre Trading">
-<meta property="og:title" content="Padre Trading | Onchain Memecoin & Crypto Trading Terminal">
-<meta property="og:description" content="A fast, self-custody terminal for trading memecoins and crypto onchain across Solana, Ethereum, Base, and BNB Chain.">
 <meta property="og:url" content="https://padretrading.app/">
-<meta property="og:image" content="https://padretrading.app/icons/icon-512.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Padre Trading | Onchain Memecoin & Crypto Trading Terminal">
-<meta name="twitter:description" content="A fast, self-custody terminal for trading memecoins and crypto onchain across Solana, Ethereum, Base, and BNB Chain.">
-<meta name="twitter:image" content="https://padretrading.app/icons/icon-512.png">
-<meta name="theme-color" content="#08080A">
-
-<!-- Favicons -->
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16.png">
-<link rel="shortcut icon" href="/icons/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="canonical" href="https://padretrading.app/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="icon" href="/icon-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-
+<meta name="google-site-verification" content="ou1lOuBUzwmfHWQ9CeHdJwpDNwmcPGIRPgCT9qHuFzk" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
+  "@type": "WebSite",
   "name": "Padre Trading",
-  "url": "https://padretrading.app/",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "Web",
-  "description": "Self-custody terminal for trading memecoins and crypto onchain across Solana, Ethereum, Base, and BNB Chain."
+  "url": "https://padretrading.app/"
 }
 </script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --base:#08080A;
-    --surface:#131316;
-    --surface-2:#1A1A1F;
-    --line:#26262C;
-    --line-soft:#1D1D22;
-    --text:#F6F6F3;
-    --text-soft:#9A9AA4;
-    --text-faint:#5E5E67;
-    --flame:#FF5A36;
-    --flame-2:#FF8A3D;
-    --flame-dim:#3D1F14;
-    --volt:#B6FF4D;
-    --red:#FF5C6C;
+    --bg:#080C0A;
+    --panel:#101710;
+    --panel-2:#152015;
+    --line:#1F2B1F;
+    --ink:#F1F7F2;
+    --muted:#8CA091;
+    --accent:#86EFAC;
+    --accent-2:#34C77B;
+    --accent-dim: rgba(134,239,172,0.10);
+    --warn:#FB8D8D;
+    --maxw:1180px;
     --radius:16px;
   }
-  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--base);
-    color:var(--text);
-    font-family:'Inter',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  h1,h2,h3,.display{ font-family:'Space Grotesk',sans-serif; }
-  p{ margin:0; }
-  a{ color:inherit; }
-  img{ max-width:100%; display:block; }
-  @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important; } }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Manrope',sans-serif;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+  ::selection{background:var(--accent); color:#04150F;}
+  img{max-width:100%; display:block;}
 
-  .reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
-  .reveal.in{ opacity:1; transform:none; }
+  header{position:sticky; top:0; z-index:60; background:rgba(8,12,10,0.85); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);}
+  nav{display:flex; align-items:center; justify-content:space-between; height:66px;}
+  .brand svg{height:20px; width:auto; display:block;}
+  .nav-links{display:flex; gap:28px; font-size:14px; color:var(--muted);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-mobile-hide{display:flex;}
+  .nav-right{display:flex; align-items:center; gap:10px;}
+  .nav-cta{background:var(--accent); color:#04150F; font-weight:700; font-size:13.5px; padding:10px 18px; border-radius:8px; white-space:nowrap;}
+  .hamburger{display:none; align-items:center; justify-content:center; width:34px; height:34px; border-radius:8px; border:1px solid var(--line); background:transparent; color:var(--ink); cursor:pointer;}
+  .hamburger svg{width:16px; height:16px;}
+  .hamburger.open{border-color:var(--accent); color:var(--accent);}
+  .mobile-panel{display:none; flex-direction:column; padding:6px 0 14px; border-top:1px solid var(--line);}
+  .mobile-panel.open{display:flex;}
+  .mobile-panel a{padding:12px 4px; font-size:14.5px; color:var(--muted); border-bottom:1px solid var(--line);}
+  .mobile-panel a:hover{color:var(--accent);}
+  @media(max-width:840px){ .nav-mobile-hide{display:none;} .hamburger{display:flex;} }
+  @media(max-width:460px){ .wrap{padding:0 16px;} nav{height:56px;} .brand svg{height:17px;} .nav-cta{padding:7px 12px; font-size:12px;} .hamburger{width:30px; height:30px;} }
 
-  /* ================= NAV ================= */
-  nav{
-    position:sticky; top:0; z-index:100;
-    display:flex; justify-content:space-between; align-items:center;
-    padding:16px 5vw;
-    background:rgba(8,8,10,.72);
-    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line-soft);
-  }
-  .logo{ display:flex; align-items:center; gap:9px; font-weight:600; font-size:17px; letter-spacing:-0.01em; z-index:120; }
-  .logo svg{ width:26px; height:26px; }
-  .nav-links{ display:flex; align-items:center; gap:30px; }
-  nav a.link{ font-size:14px; color:var(--text-soft); text-decoration:none; transition:color .2s; }
-  nav a.link:hover{ color:var(--text); }
-  .nav-cta-desktop{ display:flex; align-items:center; gap:22px; }
+  .hero{position:relative; padding:60px 0 20px; overflow:hidden;}
+  .hero::before{content:""; position:absolute; width:600px; height:600px; border-radius:50%; left:-240px; top:-260px; background:radial-gradient(circle, rgba(134,239,172,0.12), transparent 70%); pointer-events:none;}
+  .hero-grid{display:grid; grid-template-columns:1fr 0.95fr; gap:52px; align-items:center; position:relative;}
+  @media(max-width:940px){ .hero-grid{grid-template-columns:1fr;} }
 
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    padding:13px 24px; border-radius:9px; font-size:14px; font-weight:600;
-    text-decoration:none; border:1px solid transparent; cursor:pointer;
-    transition:transform .18s ease, background .18s ease, border-color .18s ease;
-    white-space:nowrap;
-  }
-  .btn:active{ transform:scale(.97); }
-  .btn-flame{ background:linear-gradient(135deg, var(--flame), var(--flame-2)); color:#150A06; }
-  .btn-flame:hover{ transform:translateY(-1px); box-shadow:0 8px 24px -8px rgba(255,90,54,.55); }
-  .btn-ghost{ border-color:var(--line); color:var(--text); background:transparent; }
-  .btn-ghost:hover{ border-color:var(--text-faint); background:var(--surface); }
-  .btn-block{ width:100%; }
+  .pill{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--accent); background:var(--accent-dim); border:1px solid rgba(134,239,172,0.25); padding:7px 14px; border-radius:100px; margin-bottom:22px;}
+  .pill .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent);}
 
-  .burger{
-    display:none; width:38px; height:38px; border-radius:9px; border:1px solid var(--line);
-    background:var(--surface); align-items:center; justify-content:center; cursor:pointer; z-index:120;
-    flex-direction:column; gap:4px;
-  }
-  .burger span{ width:16px; height:2px; background:var(--text); border-radius:2px; transition:transform .25s ease, opacity .25s ease; }
-  .burger.open span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
-  .burger.open span:nth-child(2){ opacity:0; }
-  .burger.open span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+  h1.hero-h{font-size:clamp(32px,4.8vw,52px); font-weight:800; line-height:1.08; letter-spacing:-0.02em; margin-bottom:20px;}
+  h1.hero-h .grad{background:linear-gradient(100deg, var(--accent), #DFFCE9); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .hero p.sub{font-size:16.5px; color:#B7C6BB; max-width:480px; margin-bottom:28px;}
 
-  .mobile-panel{
-    position:fixed; inset:0; top:65px; z-index:90;
-    background:rgba(8,8,10,.98); backdrop-filter:blur(14px);
-    display:flex; flex-direction:column; padding:28px 6vw;
-    gap:6px;
-    transform:translateY(-12px); opacity:0; pointer-events:none;
-    transition:transform .25s ease, opacity .25s ease;
-  }
-  .mobile-panel.open{ transform:none; opacity:1; pointer-events:auto; }
-  .mobile-panel a.link{
-    font-size:20px; padding:16px 4px; border-bottom:1px solid var(--line-soft);
-    text-decoration:none; color:var(--text); font-family:'Space Grotesk',sans-serif; font-weight:500;
-  }
-  .mobile-panel .btn{ margin-top:22px; }
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px;}
+  .btn-primary{background:var(--accent); color:#04150F; font-weight:700; font-size:15px; padding:14px 26px; border-radius:10px; box-shadow:0 16px 32px -14px rgba(134,239,172,0.5); transition:transform .15s ease;}
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{border:1px solid var(--line); color:var(--ink); font-weight:600; font-size:14.5px; padding:13px 22px; border-radius:10px;}
+  .btn-ghost:hover{border-color:#2c3a2c;}
 
-  /* ================= HERO ================= */
-  .hero{
-    padding:96px 5vw 0;
-    text-align:center;
-    position:relative;
-    isolation:isolate;
-  }
-  .hero-glow{
-    position:absolute; z-index:-1; top:-260px; left:50%; transform:translateX(-50%);
-    width:min(1100px, 140vw); height:560px;
-    background:
-      radial-gradient(closest-side, rgba(255,90,54,.35), transparent 70%),
-      radial-gradient(closest-side at 70% 40%, rgba(182,255,77,.12), transparent 60%);
-    pointer-events:none;
-  }
-  .hero-dots{
-    position:absolute; inset:0 0 auto 0; height:640px; z-index:-1;
-    background-image: radial-gradient(circle, rgba(255,255,255,.05) 1px, transparent 1px);
-    background-size:26px 26px;
-    mask-image:linear-gradient(180deg, black, transparent 85%);
-    pointer-events:none;
-  }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--flame-2);
-    border:1px solid var(--flame-dim); background:rgba(255,90,54,.08);
-    padding:8px 16px; border-radius:999px; margin-bottom:28px;
-  }
-  .eyebrow .pulse{
-    width:6px; height:6px; border-radius:50%; background:var(--volt);
-    box-shadow:0 0 0 0 rgba(182,255,77,.6);
-    animation:pulse 2s infinite;
-  }
-  @keyframes pulse{
-    0%{ box-shadow:0 0 0 0 rgba(182,255,77,.55); }
-    70%{ box-shadow:0 0 0 8px rgba(182,255,77,0); }
-    100%{ box-shadow:0 0 0 0 rgba(182,255,77,0); }
-  }
-  .hero h1{
-    font-size:clamp(38px, 7.5vw, 88px);
-    line-height:1.02; font-weight:700; letter-spacing:-0.03em;
-    margin:0 0 24px; text-wrap:balance;
-  }
-  .hero h1 .accent{
-    background:linear-gradient(100deg, var(--flame) 10%, var(--flame-2) 45%, var(--volt) 90%);
-    -webkit-background-clip:text; background-clip:text; color:transparent;
-  }
-  .hero p.lead{
-    font-size:clamp(15px,2vw,18px); line-height:1.65; color:var(--text-soft);
-    max-width:52ch; margin:0 auto 38px;
-  }
-  .btn-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:8px; }
+  /* session timeline visual in hero */
+  .session-card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:0 40px 80px -30px rgba(0,0,0,0.7); position:relative;}
+  .session-card::before{content:""; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent, var(--accent), var(--accent-2), transparent); opacity:0.7; border-radius:16px 16px 0 0;}
+  .float-badge{position:absolute; right:-14px; top:-16px; background:var(--panel); border:1px solid var(--accent); border-radius:12px; padding:11px 15px; box-shadow:0 20px 40px -16px rgba(0,0,0,0.6); z-index:2;}
+  .float-badge .v{font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:700; color:var(--accent); line-height:1;}
+  .float-badge .l{font-size:10px; color:var(--muted); margin-top:2px;}
+  @media(max-width:460px){ .float-badge{right:0; top:-12px; padding:8px 11px;} .float-badge .v{font-size:14px;} }
+  .session-card .sc-head{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--muted); margin-bottom:18px; display:flex; justify-content:space-between;}
+  .sc-item{display:flex; gap:14px; padding:13px 0; border-bottom:1px solid var(--line);}
+  .sc-item:last-child{border-bottom:none;}
+  .sc-time{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--accent); width:52px; flex-shrink:0; padding-top:2px;}
+  .sc-body b{display:block; font-size:14px; font-weight:700;}
+  .sc-body span{font-size:12.5px; color:var(--muted);}
+  .sc-check{width:18px; height:18px; border-radius:50%; border:1.5px solid var(--accent); flex-shrink:0; margin-left:auto; position:relative; margin-top:2px;}
+  .sc-check.done::after{content:""; position:absolute; left:3px; top:0; width:5px; height:9px; border-right:2px solid var(--accent); border-bottom:2px solid var(--accent); transform:rotate(40deg);}
 
-  .stat-strip{
-    display:flex; justify-content:center; gap:clamp(24px,6vw,64px);
-    margin:56px auto 0; padding:22px 5vw; flex-wrap:wrap;
-    border-top:1px solid var(--line-soft);
-  }
-  .stat-strip div{ text-align:center; }
-  .stat-strip .num{ font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(20px,3vw,28px); }
-  .stat-strip .label{ font-size:12px; color:var(--text-faint); letter-spacing:.03em; text-transform:uppercase; margin-top:4px; }
+  .net-strip{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:22px 0; margin-top:48px;}
+  .net-strip .wrap{display:flex; align-items:center; justify-content:center; gap:36px; flex-wrap:wrap;}
+  .net-strip .lbl{font-size:12.5px; color:var(--muted); margin-right:6px;}
+  .net-item{display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#D3DCD6;}
+  .net-dot{width:8px; height:8px; border-radius:50%;}
 
-  /* ================= TERMINAL MOCK ================= */
-  .terminal-wrap{ padding:56px 5vw 0; }
-  .terminal{
-    margin:0 auto; max-width:1040px;
-    border:1px solid var(--line); border-radius:20px;
-    background:linear-gradient(180deg, var(--surface), #101013);
-    overflow:hidden;
-    box-shadow:0 60px 120px -60px rgba(255,90,54,.35), 0 0 0 1px rgba(255,255,255,.02) inset;
-  }
-  .terminal-top{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 18px; border-bottom:1px solid var(--line-soft);
-  }
-  .terminal-top .dots{ display:flex; gap:7px; }
-  .dot{ width:9px; height:9px; border-radius:50%; background:#313138; }
-  .terminal-top .pair{ font-size:13px; font-weight:600; display:flex; align-items:center; gap:8px; }
-  .terminal-top .pair .up{ color:var(--volt); font-weight:500; }
-  .terminal-tabs{
-    display:flex; gap:2px; overflow-x:auto; scrollbar-width:none;
-    border-bottom:1px solid var(--line-soft); padding:0 14px;
-  }
-  .terminal-tabs::-webkit-scrollbar{ display:none; }
-  .terminal-tabs span{
-    padding:13px 14px; font-size:12.5px; color:var(--text-faint); white-space:nowrap;
-    border-bottom:2px solid transparent; font-weight:500;
-  }
-  .terminal-tabs span.active{ color:var(--text); border-color:var(--flame); }
-  .terminal-body{ padding:20px; display:grid; grid-template-columns:1.5fr 1fr; gap:16px; }
+  section{padding:84px 0;}
+  .sec-head{max-width:600px; margin:0 auto 46px; text-align:center;}
+  .sec-head.left{text-align:left; margin:0 0 40px;}
+  .sec-head h2{font-size:clamp(26px,3.6vw,36px); font-weight:800; letter-spacing:-0.02em; margin-bottom:14px;}
+  .sec-head p{color:var(--muted); font-size:16px;}
 
-  .chart-mock{
-    background:var(--surface-2); border:1px solid var(--line-soft); border-radius:12px;
-    padding:18px 14px 14px; display:flex; flex-direction:column; gap:12px;
-  }
-  .chart-mock .candles{ height:170px; display:flex; align-items:flex-end; gap:6px; }
-  .candle{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
-  .candle .wick{ width:1px; background:currentColor; opacity:.5; flex:1 1 auto; }
-  .candle .body{ width:60%; border-radius:1px; }
-  .candle.up{ color:var(--volt); }
-  .candle.down{ color:var(--red); }
-  .candle.up .body{ background:var(--volt); }
-  .candle.down .body{ background:var(--red); }
-  .chart-foot{ display:flex; justify-content:space-between; font-size:11px; color:var(--text-faint); }
-
-  .side-mock{ display:flex; flex-direction:column; gap:8px; }
-  .row-mock{
-    background:var(--surface-2); border:1px solid var(--line-soft); border-radius:9px;
-    padding:11px 13px; display:flex; justify-content:space-between; align-items:center; font-size:12.5px;
-  }
-  .row-mock .name{ color:var(--text-soft); }
-  .row-mock .up{ color:var(--volt); font-weight:600; }
-  .row-mock .down{ color:var(--red); font-weight:600; }
-  .buy-sell{ display:flex; gap:8px; margin-top:2px; }
-  .buy-sell button{
-    flex:1; border:none; border-radius:8px; padding:12px 0; font-size:13px; font-weight:700; cursor:default;
-  }
-  .buy-sell .buy{ background:rgba(182,255,77,.14); color:var(--volt); }
-  .buy-sell .sell{ background:rgba(255,92,108,.14); color:var(--red); }
-
-  @media (max-width:760px){
-    .terminal-body{ grid-template-columns:1fr; }
-  }
-
-  /* chain strip */
-  .chain-strip{
-    display:flex; align-items:center; justify-content:center; gap:14px;
-    flex-wrap:wrap; padding:34px 5vw 0; text-align:center;
-  }
-  .chain-label{ font-size:12.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em; }
-  .chain-pills{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
-  .chain-pill{
-    font-size:13px; font-weight:600; padding:8px 16px; border-radius:999px;
-    border:1px solid var(--line); background:var(--surface); color:var(--text-soft);
-  }
-
-  /* ================= SECTIONS ================= */
-  section{ padding:clamp(64px,10vw,110px) 5vw; border-top:1px solid var(--line-soft); }
-  .section-head{ max-width:620px; margin:0 auto clamp(40px,6vw,60px); text-align:center; }
-  .section-head .tag{
-    color:var(--flame-2); font-size:12.5px; font-weight:600; letter-spacing:.08em;
-    text-transform:uppercase; margin-bottom:16px; display:block;
-  }
-  .section-head h2{ font-size:clamp(28px,4.4vw,44px); margin:0 0 16px; font-weight:700; letter-spacing:-0.02em; text-wrap:balance; }
-  .section-head p{ color:var(--text-soft); font-size:15.5px; line-height:1.65; }
+  /* playbook steps */
+  .playbook{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
+  @media(max-width:860px){ .playbook{grid-template-columns:1fr;} }
+  .pb-card{background:var(--panel); padding:30px 26px;}
+  .pb-num{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--accent); margin-bottom:16px;}
+  .pb-card h3{font-size:17px; font-weight:700; margin-bottom:10px;}
+  .pb-card p{color:var(--muted); font-size:14px;}
 
   /* feature grid */
-  .feat-grid{
-    max-width:1100px; margin:0 auto;
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
-    background:var(--line-soft); border:1px solid var(--line-soft); border-radius:var(--radius); overflow:hidden;
-  }
-  .feat{ background:var(--surface); padding:30px 26px; transition:background .2s ease; }
-  .feat:hover{ background:var(--surface-2); }
-  .feat .icon{
-    width:40px; height:40px; border-radius:10px;
-    background:rgba(255,90,54,.1); border:1px solid var(--flame-dim);
-    display:flex; align-items:center; justify-content:center; margin-bottom:20px;
-    color:var(--flame-2);
-  }
-  .feat .icon svg{ width:18px; height:18px; }
-  .feat h3{ font-size:16.5px; margin:0 0 9px; font-weight:600; }
-  .feat p{ font-size:13.8px; line-height:1.62; color:var(--text-soft); }
-  @media (max-width:920px){ .feat-grid{ grid-template-columns:1fr 1fr; } }
-  @media (max-width:600px){ .feat-grid{ grid-template-columns:1fr; } }
+  .feat-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px;}
+  @media(max-width:700px){ .feat-grid{grid-template-columns:1fr;} }
+  .feat-card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px 24px; transition:border-color .2s ease, transform .2s ease; overflow:hidden; position:relative;}
+  .feat-card:hover{border-color:#2c3a2c; transform:translateY(-3px);}
+  .feat-icon{width:38px; height:38px; border-radius:10px; background:var(--accent-dim); display:flex; align-items:center; justify-content:center; margin-bottom:16px;}
+  .feat-icon svg{width:18px; height:18px; stroke:var(--accent);}
+  .feat-card h3{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .feat-card p{color:var(--muted); font-size:14px; margin-bottom:16px;}
+  .feat-mini{height:46px; border-radius:8px; background:var(--panel-2); border:1px solid var(--line); display:flex; align-items:center; padding:0 12px; gap:8px;}
+  .feat-mini .bar{height:6px; border-radius:3px; background:var(--accent); opacity:0.7;}
+  .feat-mini .dot2{width:6px; height:6px; border-radius:50%; background:var(--muted); flex-shrink:0;}
 
-  /* circuit banner */
-  .circuit{
-    border-radius:24px; border:1px solid var(--line);
-    background:radial-gradient(circle at 75% 15%, rgba(255,90,54,.22), transparent 55%), linear-gradient(160deg, #17110D, #0A0A0C 65%);
-    padding:clamp(50px,8vw,80px) 6vw; text-align:center; position:relative; overflow:hidden;
-  }
-  .circuit .tag{ color:var(--volt); font-size:12.5px; letter-spacing:.08em; font-weight:600; text-transform:uppercase; }
-  .circuit h2{ font-size:clamp(30px,6vw,58px); margin:16px 0 18px; letter-spacing:-0.02em; }
-  .circuit p{ color:var(--text-soft); max-width:50ch; margin:0 auto 32px; font-size:15.5px; line-height:1.6; }
+  /* discipline badges */
+  .badge-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden;}
+  @media(max-width:760px){ .badge-grid{grid-template-columns:1fr;} }
+  .badge-cell{background:var(--panel); padding:28px 24px;}
+  .badge-cell .bi{width:32px; height:32px; border-radius:8px; background:var(--accent-dim); display:flex; align-items:center; justify-content:center; margin-bottom:14px;}
+  .badge-cell .bi svg{width:16px; height:16px; stroke:var(--accent);}
+  .badge-cell h3{font-size:15px; font-weight:700; margin-bottom:6px;}
+  .badge-cell p{font-size:13px; color:var(--muted);}
 
-  .custody-grid{
-    max-width:960px; margin:48px auto 0;
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-    background:var(--line-soft); border:1px solid var(--line-soft); border-radius:14px; overflow:hidden;
-    text-align:left;
-  }
-  .custody-grid div{ background:rgba(19,19,22,.6); padding:22px 20px; }
-  .custody-grid h4{ font-size:14.5px; margin:0 0 8px; font-weight:600; }
-  .custody-grid p{ font-size:12.8px; color:var(--text-soft); line-height:1.55; }
-  @media (max-width:700px){ .custody-grid{ grid-template-columns:1fr 1fr; text-align:center; } }
+  .cashback{background:linear-gradient(120deg, #0E241A, #080C0A 70%); border:1px solid rgba(134,239,172,0.25); border-radius:22px; padding:56px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;}
+  @media(max-width:800px){ .cashback{grid-template-columns:1fr; padding:36px 26px; text-align:center;} .cashback p{margin-left:auto; margin-right:auto;} }
+  .cashback h2{font-size:clamp(24px,3.4vw,34px); font-weight:800; margin-bottom:14px;}
+  .cashback p{color:var(--muted); margin-bottom:24px; max-width:420px;}
+  .big-num{font-family:'JetBrains Mono',monospace; font-size:clamp(64px,9vw,104px); font-weight:700; color:var(--accent); line-height:1; text-align:center; text-shadow:0 0 44px rgba(134,239,172,0.4);}
+  .big-num-l{text-align:center; color:var(--muted); font-size:13px; margin-top:8px;}
 
-  /* marquee */
-  .marquee-wrap{ overflow:hidden; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); padding:24px 0; }
-  .marquee{ display:flex; width:max-content; gap:56px; animation:slide 28s linear infinite; }
-  .marquee span{ font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:var(--text-faint); white-space:nowrap; letter-spacing:.04em; }
-  @keyframes slide{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .post-list{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  @media(max-width:700px){ .post-list{grid-template-columns:1fr;} }
+  .post-item{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px 24px; transition:border-color .15s ease;}
+  .post-item:hover{border-color:var(--accent);}
+  .post-item .cat{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent); margin-bottom:8px;}
+  .post-item h3{font-size:15.5px; font-weight:700; margin-bottom:6px;}
+  .post-item p{font-size:13.5px; color:var(--muted);}
 
-  /* faq */
-  .faq{ max-width:740px; margin:0 auto; }
-  details{ border-bottom:1px solid var(--line-soft); padding:18px 4px; }
-  summary{
-    cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:16px;
-    align-items:center; font-size:15px; font-weight:600;
-  }
-  summary::-webkit-details-marker{ display:none; }
-  .plus{ position:relative; width:16px; height:16px; flex:none; }
-  .plus::before, .plus::after{
-    content:""; position:absolute; background:var(--flame-2); border-radius:2px;
-    transition:transform .25s ease;
-  }
-  .plus::before{ width:16px; height:2px; top:7px; left:0; }
-  .plus::after{ width:2px; height:16px; top:0; left:7px; }
-  details[open] .plus::after{ transform:rotate(90deg); opacity:0; }
-  details p{ color:var(--text-soft); font-size:14px; line-height:1.65; margin:14px 0 0; padding-right:28px; }
+  .faq-item{border-bottom:1px solid var(--line); padding:20px 0;}
+  .faq-q{display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:15.5px;}
+  .faq-q:hover{color:var(--accent);}
+  .faq-q .plus{color:var(--muted); font-size:19px; transition:transform .2s; margin-left:16px; flex-shrink:0;}
+  .faq-item.open .plus{transform:rotate(45deg); color:var(--accent);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{color:var(--muted); font-size:14px; padding-top:12px; max-width:640px;}
 
-  /* closing */
-  .closing{ text-align:center; padding-bottom:clamp(60px,10vw,90px); }
-  .closing h2{ font-size:clamp(30px,6vw,52px); margin:0 0 30px; letter-spacing:-0.02em; text-wrap:balance; }
+  .final-cta{position:relative; overflow:hidden; text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:60px 24px;}
+  .final-cta::before{content:""; position:absolute; width:460px; height:230px; left:50%; top:-130px; transform:translateX(-50%); background:radial-gradient(ellipse, rgba(134,239,172,0.16), transparent 70%); pointer-events:none;}
+  .final-cta h2{font-size:clamp(26px,4vw,38px); font-weight:800; margin-bottom:14px; position:relative;}
+  .final-cta p{color:var(--muted); margin-bottom:28px; position:relative; max-width:440px; margin-left:auto; margin-right:auto;}
 
-  footer{ border-top:1px solid var(--line-soft); padding:56px 5vw 26px; }
-  .foot-grid{
-    display:grid; grid-template-columns:1.5fr repeat(3,1fr); gap:32px;
-    max-width:1200px; margin:0 auto 40px;
-  }
-  .foot-grid h5{ font-size:12.5px; color:var(--text-faint); margin:0 0 16px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; }
-  .foot-grid a{ display:block; font-size:14px; color:var(--text-soft); text-decoration:none; margin-bottom:12px; transition:color .2s; }
-  .foot-grid a:hover{ color:var(--text); }
-  .foot-bottom{
-    max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;
-    color:var(--text-faint); font-size:12.5px; border-top:1px solid var(--line-soft); padding-top:22px; flex-wrap:wrap; gap:10px;
-  }
-  @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr 1fr; } }
-  @media (max-width:460px){ .foot-grid{ grid-template-columns:1fr; } }
+  footer{border-top:1px solid var(--line); padding:44px 0 60px;}
+  .foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; margin-bottom:26px; align-items:flex-start;}
+  footer .foot-grid svg{height:19px; width:auto;}
+  footer .disclaimer{font-size:12.5px; line-height:1.75; color:#5E6D5F; border-top:1px solid var(--line); padding-top:20px;}
+  footer .disclaimer strong{color:#8CA091;}
 
-  /* ================= MOBILE ================= */
-  @media (max-width:860px){
-    .nav-cta-desktop .link{ display:none; }
-    .nav-cta-desktop .btn-flame{ display:none; }
-    .burger{ display:flex; }
-    .hero{ padding-top:64px; }
-    .stat-strip{ gap:22px 34px; }
-    .btn-row{ flex-direction:column; align-items:stretch; }
-    .btn-row .btn{ width:100%; }
-  }
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">
-    <svg viewBox="0 0 32 32" fill="none">
-      <rect width="32" height="32" rx="8" fill="url(#g)"/>
-      <path d="M10 21L16 9L22 21" stroke="#150A06" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12.8 16.5H19.2" stroke="#150A06" stroke-width="2.4" stroke-linecap="round"/>
-      <defs><linearGradient id="g" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#FF5A36"/><stop offset="1" stop-color="#FF8A3D"/></linearGradient></defs>
-    </svg>
-    Padre Trading
-  </div>
-  <div class="nav-cta-desktop">
-    <a class="link" href="https://padretrading.app/?click">Features</a>
-    <a class="link" href="https://padretrading.app/?click">Rewards</a>
-    <a class="link" href="https://padretrading.app/?click">Community</a>
-    <a class="link" href="https://padretrading.app/?click">FAQs</a>
-    <a class="btn btn-flame" href="https://padretrading.app/?click">Launch App</a>
-  </div>
-  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-
-<div class="mobile-panel" id="mobilePanel">
-  <a class="link" href="https://padretrading.app/?click">Features</a>
-  <a class="link" href="https://padretrading.app/?click">Rewards</a>
-  <a class="link" href="https://padretrading.app/?click">Community</a>
-  <a class="link" href="https://padretrading.app/?click">FAQs</a>
-  <a class="btn btn-flame btn-block" href="https://padretrading.app/?click">Launch App</a>
-</div>
-
-<section class="hero" style="border-top:none;">
-  <div class="hero-dots"></div>
-  <div class="hero-glow"></div>
-  <span class="eyebrow"><span class="pulse"></span>Built for traders, by traders</span>
-  <h1>Your edge,<br><span class="accent">fully onchain.</span></h1>
-  <p class="lead">Padre Trading is a fast, self-custody terminal for buying, selling, and tracking crypto across Solana, Ethereum, Base, and BNB Chain — real-time data and automation, without giving up control of your keys.</p>
-  <div class="btn-row">
-    <a href="https://padretrading.app/?click" class="btn btn-flame">Start Trading →</a>
-    <a href="https://padretrading.app/?click" class="btn btn-ghost">See what's inside</a>
-  </div>
-
-  <div class="stat-strip reveal">
-    <div><div class="num">~300ms</div><div class="label">Order Speed</div></div>
-    <div><div class="num">4 Chains</div><div class="label">Solana · ETH · Base · BNB</div></div>
-    <div><div class="num">10K+</div><div class="label">Wallets Trackable</div></div>
-    <div><div class="num">45%</div><div class="label">Max Fee Cashback</div></div>
-  </div>
-</section>
-
-<div class="terminal-wrap">
-  <div class="terminal reveal">
-    <div class="terminal-top">
-      <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-      <div class="pair">PADRE / USDC <span class="up">▲ 18.4%</span></div>
-    </div>
-    <div class="terminal-tabs">
-      <span class="active">Trade</span><span>Explorer</span><span>Trenches</span>
-      <span>Perps</span><span>Trackers</span><span>Holdings</span><span>Analyzer</span>
-    </div>
-    <div class="terminal-body">
-      <div class="chart-mock">
-        <div class="candles" id="candles"></div>
-        <div class="chart-foot"><span>09:00</span><span>12:00</span><span>15:00</span><span>18:00</span><span>21:00</span></div>
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="brand" aria-label="Home">
+        <svg viewBox="0 0 460 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g clip-path="url(#hlogo)">
+            <path d="M111.18 24.9642V15.8462H154.259L148.422 24.9642H138.201V68.1539H127.239V24.9642H111.18Z" fill="#86EFAC"/>
+            <path d="M157.173 68.1539V15.8462H192.518V24.9642H168.264V37.4282H190.699V46.5463H168.264V59.0358H192.62V68.1539H157.173Z" fill="#86EFAC"/>
+            <path d="M198.449 68.1539V15.8462H219.142C223.104 15.8462 226.485 16.5528 229.285 17.9661C232.103 19.3623 234.245 21.346 235.713 23.917C237.199 26.4711 237.942 29.4765 237.942 32.933C237.942 36.4065 237.191 39.3949 235.688 41.8978C234.186 44.3838 232.008 46.2909 229.157 47.619C226.322 48.9471 222.891 49.6112 218.861 49.6112H205.005V40.723H217.068C219.185 40.723 220.944 40.4335 222.344 39.8546C223.745 39.2756 224.786 38.4073 225.469 37.2494C226.169 36.0915 226.519 34.6528 226.519 32.933C226.519 31.1963 226.169 29.7319 225.469 28.54C224.786 27.3481 223.736 26.4456 222.319 25.8326C220.919 25.2026 219.151 24.8877 217.017 24.8877H209.538V68.1539H198.449ZM226.775 44.3498L239.811 68.1539H227.57L214.814 44.3498H226.775Z" fill="#86EFAC"/>
+            <path d="M245.639 15.8462H259.316L273.762 50.9904H274.375L288.821 15.8462H302.498V68.1539H291.741V34.1079H291.305L277.731 67.8985H270.406L256.832 33.9802H256.397V68.1539H245.639V15.8462Z" fill="#86EFAC"/>
+            <path d="M319.416 15.8462V68.1539H308.327V15.8462H319.416Z" fill="#86EFAC"/>
+            <path d="M369.117 15.8462V68.1539H359.538L336.718 35.2317H336.334V68.1539H325.245V15.8462H334.977L357.618 48.7428H358.079V15.8462H369.117Z" fill="#86EFAC"/>
+            <path d="M383.916 68.1539H372.032L390.14 15.8462H404.431L422.513 68.1539H410.629L397.489 27.7993H397.08L383.916 68.1539Z" fill="#86EFAC"/>
+            <path d="M425.427 68.1539V15.8462H436.517V59.0358H459.005V68.1539H425.427Z" fill="#86EFAC"/>
+            <path d="M19.7001 25.2716L54.8013 54.725L40.4621 71.8139C32.3288 81.5068 17.8777 82.7711 8.18477 74.6377C-1.50821 66.5044 -2.77252 52.0533 5.36086 42.3604L19.7001 25.2716Z" fill="#86EFAC" fill-opacity="0.4"/>
+            <path d="M12.4455 49.9567C10.1821 53.4357 7.52669 61.7278 15.0121 67.0642" stroke="#86EFAC" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3.62 7.23 12.06 7.23"/>
+            <path d="M66.3158 5.36013C76.0084 13.4933 77.273 27.9446 69.1404 37.6376L40.462 71.8151L40.0761 72.2641C31.8782 81.546 17.7253 82.6454 8.18383 74.6391L7.73629 74.2532C-1.54562 66.0552 -2.64564 51.9031 5.36064 42.3617L34.0391 8.18404C42.1725 -1.50815 56.623 -2.77263 66.3158 5.36013ZM21.6579 32.5119L10.0743 46.3169C4.12538 53.4064 5.0497 63.9764 12.139 69.9255C19.2287 75.8744 29.7994 74.9496 35.7483 67.8599L47.3319 54.0551L21.6579 32.5119ZM62.3606 10.0738C55.2711 4.12539 44.7016 5.05031 38.7527 12.1392L26.8169 26.3637L52.491 47.9068L64.4268 33.6823C70.3751 26.5927 69.4499 16.0226 62.3606 10.0738Z" fill="#86EFAC"/>
+          </g>
+          <defs><clipPath id="hlogo"><rect width="460" height="80" fill="white"/></clipPath></defs>
+        </svg>
+      </a>
+      <div class="nav-links nav-mobile-hide">
+        <a href="#playbook">Playbook</a>
+        <a href="#discipline">Discipline</a>
+        <a href="#blog">Guides</a>
+        <a href="#faq">FAQ</a>
       </div>
-      <div class="side-mock">
-        <div class="row-mock"><span class="name">SOL / USDC</span><span class="up">+3.1%</span></div>
-        <div class="row-mock"><span class="name">Watchlist alert</span><span class="down">-6.2%</span></div>
-        <div class="row-mock"><span class="name">Wallet #2 · buy filled</span><span class="up">done</span></div>
-        <div class="row-mock"><span class="name">Slippage</span><span class="name">0.8%</span></div>
-        <div class="buy-sell"><button class="buy">Buy</button><button class="sell">Sell</button></div>
+      <div class="nav-right">
+        <a class="nav-cta" href="/go/" target="_blank" rel="noopener sponsored">Open Terminal</a>
+        <button class="hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-panel" id="mobilePanel">
+      <a href="#playbook">Playbook</a>
+      <a href="#discipline">Discipline</a>
+      <a href="#blog">Guides</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="pill"><span class="dot"></span>A daily playbook, not just a feature list</div>
+          <h1 class="hero-h">Trade with a routine,<br><span class="grad">not just a terminal.</span></h1>
+          <p class="sub">Padre Trading is an independent playbook for people already using Padre Terminal — session structure, position sizing, and exit discipline, on top of self-custody trading across Solana, Ethereum, Base and BNB Chain. This link gets you 35% of your trading fees back, automatically.</p>
+          <div class="cta-row">
+            <a class="btn-primary" href="/go/" target="_blank" rel="noopener sponsored">Open Padre Terminal</a>
+            <a class="btn-ghost" href="#playbook">See the playbook</a>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="float-badge"><div class="v mono">35%</div><div class="l">fee cashback</div></div>
+          <div class="sc-head"><span>SESSION CHECKLIST</span><span>TODAY</span></div>
+          <div class="sc-item">
+            <div class="sc-time">08:40</div>
+            <div class="sc-body"><b>Review overnight wallet alerts</b><span>Check tracked wallets before the market opens for you</span></div>
+            <div class="sc-check done"></div>
+          </div>
+          <div class="sc-item">
+            <div class="sc-time">09:05</div>
+            <div class="sc-body"><b>Set today's position size limit</b><span>Decide the cap before the first trade, not during it</span></div>
+            <div class="sc-check done"></div>
+          </div>
+          <div class="sc-item">
+            <div class="sc-time">09:15</div>
+            <div class="sc-body"><b>Load presets for today's conditions</b><span>Aggressive for launches, conservative for size</span></div>
+            <div class="sc-check"></div>
+          </div>
+          <div class="sc-item">
+            <div class="sc-time">EOD</div>
+            <div class="sc-body"><b>Log trades to the journal</b><span>Five minutes now saves guessing later</span></div>
+            <div class="sc-check"></div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="chain-strip reveal">
-  <span class="chain-label">Trade across</span>
-  <div class="chain-pills">
-    <span class="chain-pill">Solana</span>
-    <span class="chain-pill">Ethereum</span>
-    <span class="chain-pill">Base</span>
-    <span class="chain-pill">BNB Chain</span>
-  </div>
-</div>
+    <div class="net-strip">
+      <div class="wrap">
+        <span class="lbl">Trade across</span>
+        <div class="net-item"><span class="net-dot" style="background:#9945FF;"></span>Solana</div>
+        <div class="net-item"><span class="net-dot" style="background:#627EEA;"></span>Ethereum</div>
+        <div class="net-item"><span class="net-dot" style="background:#0052FF;"></span>Base</div>
+        <div class="net-item"><span class="net-dot" style="background:#F0B90B;"></span>BNB Chain</div>
+      </div>
+    </div>
+  </section>
 
-<section id="features">
-  <div class="section-head reveal">
-    <span class="tag">One Terminal, Every Chain</span>
-    <h2>Everything you need, in one place</h2>
-    <p>Padre Trading brings order execution, tracking, and analysis together — built for traders who need speed without giving up control.</p>
-  </div>
-  <div class="feat-grid reveal">
-    <div class="feat">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 17L10 11L14 15L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3>Market Orders</h3>
-      <p>Buy and sell in a single tap, tuned to fill fast when timing is everything.</p>
+  <section id="playbook">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>A simple three-part playbook</h2>
+        <p>Not a strategy that predicts price — a structure that keeps you from making avoidable mistakes.</p>
+      </div>
+      <div class="playbook">
+        <div class="pb-card">
+          <div class="pb-num">BEFORE</div>
+          <h3>Set limits while you're calm</h3>
+          <p>Position size, daily loss limit, and which presets you'll use — decided before the first trade, not adjusted mid-session under pressure.</p>
+        </div>
+        <div class="pb-card">
+          <div class="pb-num">DURING</div>
+          <h3>Execute against the plan</h3>
+          <p>Use saved presets and pre-set exit orders instead of re-deciding variables on every single trade while price is moving.</p>
+        </div>
+        <div class="pb-card">
+          <div class="pb-num">AFTER</div>
+          <h3>Log it before you forget why</h3>
+          <p>A short note per trade — what you saw, what you did — turns a string of trades into something you can actually learn from later.</p>
+        </div>
+      </div>
     </div>
-    <div class="feat">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12H10L12 6L14 18L16 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3>Limit, Stop-Loss & Take-Profit</h3>
-      <p>Queue entries and exits in advance, including automated stop-loss and take-profit levels.</p>
-    </div>
-    <div class="feat">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12H21M12 3C14.5 6 14.5 18 12 21C9.5 18 9.5 6 12 3Z" stroke="currentColor" stroke-width="2"/></svg></div>
-      <h3>Multi-Chain Execution</h3>
-      <p>Trade Solana, Ethereum, Base, and BNB Chain from one screen — no switching apps.</p>
-    </div>
-    <div class="feat">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 8L21 8L21 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 8L15 14L11 10L3 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3>Copy Trading</h3>
-      <p>Mirror a wallet's buys and sells with rules you control, down to size and delay.</p>
-    </div>
-    <div class="feat">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="M20 20L15.5 15.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-      <h3>Wallet Tracker</h3>
-      <p>Tag and follow thousands of wallets, with alerts the moment they buy or sell.</p>
-    </div>
-    <div class="feat">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M12 20V4M20 20V14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
-      <h3>Portfolio & PnL</h3>
-      <p>See holdings, performance, and history at a glance, with shareable PnL cards.</p>
-    </div>
-    <div class="feat">
-      <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L4 7V12C4 16.5 7.4 20.4 12 21C16.6 20.4 20 16.5 20 12V7L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div>
-      <h3>Trenches</h3>
-      <p>Track freshly launched tokens the moment they hit the bonding curve, with dev and holder signals.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="circuit">
-  <div class="circuit reveal">
-    <span class="tag">Rewards</span>
-    <h2>Get paid to trade</h2>
-    <p>Every trade earns fee cashback — 10% by default, up to 45% when you join through a referral. No lockups, no extra steps.</p>
-    <a href="https://padretrading.app/?click" class="btn btn-flame">View Referral Tiers →</a>
-    <div class="custody-grid">
-      <div><h4>Self-Custody</h4><p>Your keys never leave your wallet — Padre Trading never holds your funds.</p></div>
-      <div><h4>Verifiable</h4><p>Every trade settles onchain, in the open, no black box.</p></div>
-      <div><h4>Multi-Chain</h4><p>Solana, Ethereum, Base, and BNB Chain in a single account.</p></div>
-      <div><h4>Enterprise-Grade</h4><p>Infrastructure built to hold up when volume spikes.</p></div>
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Built around Padre Terminal's actual tools</h2>
+        <p>The playbook only works because these already exist in the terminal.</p>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+          <h3>Saved Presets</h3>
+          <p>Aggressive and conservative order profiles, switched with one click instead of re-typing slippage and fee settings.</p>
+          <div class="feat-mini"><span class="dot2"></span><div class="bar" style="width:38%;"></div><span class="dot2" style="background:var(--accent);"></span><div class="bar" style="width:20%; opacity:0.4;"></div></div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 4v16h16"/><path d="m6 15 4-5 4 3 5-7"/></svg></div>
+          <h3>Stop Loss &amp; Take Profit</h3>
+          <p>Exit orders that execute on the plan you made, whether or not you're watching the chart when it happens.</p>
+          <div class="feat-mini"><div class="bar" style="width:60%;"></div><span class="dot2" style="background:var(--warn);"></span><div class="bar" style="width:15%; opacity:0.4;"></div></div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M17 8 7 16M7 8h10v10"/></svg></div>
+          <h3>Wallet Tracking</h3>
+          <p>Morning review of tracked wallet activity, instead of starting the session with no read on what's moving.</p>
+          <div class="feat-mini"><span class="dot2" style="background:var(--accent);"></span><div class="bar" style="width:26%;"></div><span class="dot2"></span><div class="bar" style="width:44%; opacity:0.5;"></div></div>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div>
+          <h3>Portfolio View</h3>
+          <p>Realized and unrealized PnL in one place — the raw material for the journaling half of the playbook.</p>
+          <div class="feat-mini"><div class="bar" style="width:70%;"></div><span class="dot2" style="background:var(--accent);"></span></div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="community" style="padding-bottom:0; border-bottom:none;">
-  <div class="section-head reveal">
-    <span class="tag">Community</span>
-    <h2>Built alongside the people who trade on it</h2>
-    <p>Padre Trading works with projects and communities across the ecosystem to keep the terminal sharp and the culture honest.</p>
-  </div>
-</section>
-<div class="marquee-wrap">
-  <div class="marquee" id="marquee"></div>
-</div>
+  <section id="discipline">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The discipline side, briefly</h2>
+        <p>Three habits that matter more than any single setting.</p>
+      </div>
+      <div class="badge-grid">
+        <div class="badge-cell">
+          <div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12h6M12 9v6"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Size Before You Search</h3>
+          <p>Decide position size before you start looking for a trade, not after you've already found one you're excited about.</p>
+        </div>
+        <div class="badge-cell">
+          <div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2 3 7v6c0 5 4 9 9 9s9-4 9-9V7l-9-5Z"/></svg></div>
+          <h3>Exits Set in Advance</h3>
+          <p>A stop loss and take profit placed at entry survive a bad moment better than a decision made while the position is moving against you.</p>
+        </div>
+        <div class="badge-cell">
+          <div class="bi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>A Session Has an End</h3>
+          <p>Deciding your stopping point before you start makes it a plan. Deciding it mid-session, after a string of losses, rarely is.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section id="faqs">
-  <div class="section-head reveal">
-    <span class="tag">FAQs</span>
-    <h2>Questions, answered</h2>
-  </div>
-  <div class="faq reveal">
-    <details open>
-      <summary>What is Padre Trading?<span class="plus"></span></summary>
-      <p>A self-custody terminal for trading crypto onchain, combining execution tools, tracking, and analytics in one interface.</p>
-    </details>
-    <details>
-      <summary>Do I keep control of my funds?<span class="plus"></span></summary>
-      <p>Yes. Padre Trading is non-custodial — your wallet holds the keys, transactions are signed locally, and there's no deposit address to trust.</p>
-    </details>
-    <details>
-      <summary>Which chains are supported?<span class="plus"></span></summary>
-      <p>Solana, Ethereum, Base, and BNB Chain, all switchable from the same screen without changing apps.</p>
-    </details>
-    <details>
-      <summary>What does trading cost?<span class="plus"></span></summary>
-      <p>A small platform fee per executed trade, plus network gas and any slippage — standard costs of trading onchain. Fee cashback offsets part of this automatically.</p>
-    </details>
-    <details>
-      <summary>How does the cashback work?<span class="plus"></span></summary>
-      <p>Every account gets a default cashback rate on trading fees, rising to a higher tier when you sign up through a referral link.</p>
-    </details>
-    <details>
-      <summary>Is there a mobile app?<span class="plus"></span></summary>
-      <p>Padre Trading runs as a installable web app (PWA), so it works like a native app on both desktop and mobile without an app-store download.</p>
-    </details>
-  </div>
-</section>
+  <section>
+    <div class="wrap">
+      <div class="cashback">
+        <div>
+          <h2>Cashback runs in the background of the playbook.</h2>
+          <p>No minimum volume, no token to hold. Every filled order sends fee cashback straight to your wallet in SOL, automatically — it's not a separate step to remember.</p>
+          <a class="btn-primary" href="/go/" target="_blank" rel="noopener sponsored">Activate Cashback</a>
+        </div>
+        <div>
+          <div class="big-num">35%</div>
+          <div class="big-num-l">FEE CASHBACK PER TRADE</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section class="closing reveal" style="border-top:none;">
-  <h2>The market moves fast.<br>Trade like it.</h2>
-  <a href="https://padretrading.app/?click" class="btn btn-flame">Start Trading →</a>
-</section>
+  <section id="blog">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Guides for building the habit</h2>
+        <p>Short, specific write-ups on the discipline side of trading Padre Terminal.</p>
+      </div>
+      <div class="post-list">
+        <a class="post-item" href="/blog/daily-trading-routine-padre-terminal.html">
+          <div class="cat">ROUTINE</div>
+          <h3>A Simple Daily Routine for Trading on Padre Terminal</h3>
+          <p>Structuring a session before, during, and after — instead of just reacting to whatever's moving.</p>
+        </a>
+        <a class="post-item" href="/blog/position-sizing-framework.html">
+          <div class="cat">DISCIPLINE</div>
+          <h3>Position Sizing on Padre Terminal: A Practical Framework</h3>
+          <p>A simple way to decide size before you're emotionally attached to a specific trade.</p>
+        </a>
+        <a class="post-item" href="/blog/recognizing-overtrading.html">
+          <div class="cat">DISCIPLINE</div>
+          <h3>When to Walk Away: Recognizing Overtrading</h3>
+          <p>The patterns that signal a session should have ended a few trades ago.</p>
+        </a>
+        <a class="post-item" href="/blog/trade-journal-portfolio-view.html">
+          <div class="cat">ROUTINE</div>
+          <h3>Building a Trade Journal With the Portfolio View</h3>
+          <p>Turning Padre Terminal's PnL data into a habit you actually keep up.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Questions before you start</h2>
+      </div>
+      <div style="max-width:720px; margin:0 auto;">
+        <div class="faq-item">
+          <div class="faq-q">Is this an official Padre Terminal resource? <span class="plus">+</span></div>
+          <div class="faq-a"><p>No — this is an independent playbook and referral page that links to the official terminal through a referral code. See the disclosure in the footer.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I need to sign up here before trading? <span class="plus">+</span></div>
+          <div class="faq-a"><p>No account or form — the link takes you directly to the terminal, where you connect a wallet instead of creating a login.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is "Padre" the same as "Terminal"? <span class="plus">+</span></div>
+          <div class="faq-a"><p>Yes. The platform was renamed from Padre to Terminal after Pump.fun's acquisition in October 2025 — same engine and self-custody model, new name and ownership.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Does the 35% cashback cost anything extra? <span class="plus">+</span></div>
+          <div class="faq-a"><p>No — it's a rebate on the fee you'd already pay per trade, credited automatically in SOL.</p></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is this playbook a trading strategy that predicts price? <span class="plus">+</span></div>
+          <div class="faq-a"><p>No — it's a structure for how you size, execute, and review trades. It doesn't tell you what to buy or predict what happens next; it's meant to reduce avoidable mistakes around whatever decisions you're already making.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="final-cta">
+        <h2>Build the habit from your first trade.</h2>
+        <p>Connect a wallet, set your limits before you start, and let cashback apply automatically.</p>
+        <a class="btn-primary" href="/go/" target="_blank" rel="noopener sponsored">Open Padre Terminal</a>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <div class="foot-grid">
-    <div>
-      <div class="logo">
-        <svg viewBox="0 0 32 32" fill="none">
-          <rect width="32" height="32" rx="8" fill="url(#g2)"/>
-          <path d="M10 21L16 9L22 21" stroke="#150A06" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M12.8 16.5H19.2" stroke="#150A06" stroke-width="2.4" stroke-linecap="round"/>
-          <defs><linearGradient id="g2" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#FF5A36"/><stop offset="1" stop-color="#FF8A3D"/></linearGradient></defs>
-        </svg>
-        Padre Trading
-      </div>
+  <div class="wrap">
+    <div class="foot-grid">
+      <svg viewBox="0 0 460 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#flogo)">
+          <path d="M111.18 24.9642V15.8462H154.259L148.422 24.9642H138.201V68.1539H127.239V24.9642H111.18Z" fill="#86EFAC"/>
+          <path d="M157.173 68.1539V15.8462H192.518V24.9642H168.264V37.4282H190.699V46.5463H168.264V59.0358H192.62V68.1539H157.173Z" fill="#86EFAC"/>
+          <path d="M198.449 68.1539V15.8462H219.142C223.104 15.8462 226.485 16.5528 229.285 17.9661C232.103 19.3623 234.245 21.346 235.713 23.917C237.199 26.4711 237.942 29.4765 237.942 32.933C237.942 36.4065 237.191 39.3949 235.688 41.8978C234.186 44.3838 232.008 46.2909 229.157 47.619C226.322 48.9471 222.891 49.6112 218.861 49.6112H205.005V40.723H217.068C219.185 40.723 220.944 40.4335 222.344 39.8546C223.745 39.2756 224.786 38.4073 225.469 37.2494C226.169 36.0915 226.519 34.6528 226.519 32.933C226.519 31.1963 226.169 29.7319 225.469 28.54C224.786 27.3481 223.736 26.4456 222.319 25.8326C220.919 25.2026 219.151 24.8877 217.017 24.8877H209.538V68.1539H198.449ZM226.775 44.3498L239.811 68.1539H227.57L214.814 44.3498H226.775Z" fill="#86EFAC"/>
+          <path d="M245.639 15.8462H259.316L273.762 50.9904H274.375L288.821 15.8462H302.498V68.1539H291.741V34.1079H291.305L277.731 67.8985H270.406L256.832 33.9802H256.397V68.1539H245.639V15.8462Z" fill="#86EFAC"/>
+          <path d="M319.416 15.8462V68.1539H308.327V15.8462H319.416Z" fill="#86EFAC"/>
+          <path d="M369.117 15.8462V68.1539H359.538L336.718 35.2317H336.334V68.1539H325.245V15.8462H334.977L357.618 48.7428H358.079V15.8462H369.117Z" fill="#86EFAC"/>
+          <path d="M383.916 68.1539H372.032L390.14 15.8462H404.431L422.513 68.1539H410.629L397.489 27.7993H397.08L383.916 68.1539Z" fill="#86EFAC"/>
+          <path d="M425.427 68.1539V15.8462H436.517V59.0358H459.005V68.1539H425.427Z" fill="#86EFAC"/>
+          <path d="M19.7001 25.2716L54.8013 54.725L40.4621 71.8139C32.3288 81.5068 17.8777 82.7711 8.18477 74.6377C-1.50821 66.5044 -2.77252 52.0533 5.36086 42.3604L19.7001 25.2716Z" fill="#86EFAC" fill-opacity="0.4"/>
+          <path d="M12.4455 49.9567C10.1821 53.4357 7.52669 61.7278 15.0121 67.0642" stroke="#86EFAC" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="3.62 7.23 12.06 7.23"/>
+          <path d="M66.3158 5.36013C76.0084 13.4933 77.273 27.9446 69.1404 37.6376L40.462 71.8151L40.0761 72.2641C31.8782 81.546 17.7253 82.6454 8.18383 74.6391L7.73629 74.2532C-1.54562 66.0552 -2.64564 51.9031 5.36064 42.3617L34.0391 8.18404C42.1725 -1.50815 56.623 -2.77263 66.3158 5.36013ZM21.6579 32.5119L10.0743 46.3169C4.12538 53.4064 5.0497 63.9764 12.139 69.9255C19.2287 75.8744 29.7994 74.9496 35.7483 67.8599L47.3319 54.0551L21.6579 32.5119ZM62.3606 10.0738C55.2711 4.12539 44.7016 5.05031 38.7527 12.1392L26.8169 26.3637L52.491 47.9068L64.4268 33.6823C70.3751 26.5927 69.4499 16.0226 62.3606 10.0738Z" fill="#86EFAC"/>
+        </g>
+        <defs><clipPath id="flogo"><rect width="460" height="80" fill="white"/></clipPath></defs>
+      </svg>
+      <div style="max-width:440px; font-size:13px; color:var(--muted);">An independent trading playbook and referral page for the Padre Terminal on-chain trading platform (trade.padre.gg).</div>
     </div>
-    <div>
-      <h5>Product</h5>
-      <a href="https://padretrading.app/?click">Features</a>
-      <a href="https://padretrading.app/?click">Rewards</a>
-      <a href="https://padretrading.app/?click">Documentation</a>
+    <div class="disclaimer">
+      <strong>Referral disclosure:</strong> padretrading.app is an independent content page and is not an official channel of, endorsed by, or operated by Padre, Terminal, or trade.padre.gg. Links on this page include a referral code; the page operator may earn a commission when you sign up through one. Trading digital assets carries risk of loss — do your own research and only trade with funds you can afford to lose. Nothing here is financial advice.
     </div>
-    <div>
-      <h5>Company</h5>
-      <a href="https://padretrading.app/?click">Careers</a>
-      <a href="https://padretrading.app/?click">Blog</a>
-      <a href="https://padretrading.app/?click">Privacy Policy</a>
-    </div>
-    <div>
-      <h5>Community</h5>
-      <a href="https://padretrading.app/?click">Twitter / X</a>
-      <a href="https://padretrading.app/?click">Telegram</a>
-      <a href="https://padretrading.app/?click">Discord</a>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <span>© <span id="year"></span> Padre Trading. All rights reserved.</span>
-    <span>padretrading.app</span>
   </div>
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // mobile menu
-  const burger = document.getElementById('burger');
-  const panel = document.getElementById('mobilePanel');
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    panel.classList.toggle('open');
+(function(){
+  var btn = document.getElementById('menuBtn');
+  var panel = document.getElementById('mobilePanel');
+  if(!btn || !panel) return;
+  btn.addEventListener('click', function(){
+    var isOpen = panel.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
-  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    burger.classList.remove('open'); panel.classList.remove('open');
-  }));
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ panel.classList.remove('open'); btn.classList.remove('open'); btn.setAttribute('aria-expanded','false'); });
+  });
+})();
 
-  // partner marquee
-  const partners = ["SOLANA","PRIVY","MOONPAY","DEBRIDGE","SWITCHBOARD","RAYDIUM","HELIUS","TRADINGVIEW"];
-  const list = partners.map(p => `<span>${p}</span>`).join('');
-  document.getElementById('marquee').innerHTML = list + list;
-
-  // candlestick mock chart (decorative, not live data)
-  const pattern = [
-    [30,70,1],[45,60,0],[25,80,1],[55,40,0],[35,75,1],[60,35,0],
-    [20,85,1],[50,50,0],[40,65,1],[65,30,0],[30,70,1],[70,25,1]
-  ];
-  const candlesEl = document.getElementById('candles');
-  candlesEl.innerHTML = pattern.map(([bodyPct, wickPct, up]) => `
-    <div class="candle ${up ? 'up' : 'down'}">
-      <div class="wick" style="height:${wickPct}%"></div>
-      <div class="body" style="height:${bodyPct}%"></div>
-    </div>
-  `).join('');
-
-  // scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); observer.unobserve(e.target); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.faq-item').forEach(function(item){
+  var q = item.querySelector('.faq-q');
+  var a = item.querySelector('.faq-a');
+  q.addEventListener('click', function(){
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null; });
+    if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 20 + 'px'; }
+  });
+});
 </script>
 
 </body>

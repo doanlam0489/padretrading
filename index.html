@@ -17,7 +17,6 @@
 <link rel="icon" href="/icon-mark.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="google-site-verification" content="ou1lOuBUzwmfHWQ9CeHdJwpDNwmcPGIRPgCT9qHuFzk" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,16 +36,23 @@
     --line:#1F2B1F;
     --ink:#F1F7F2;
     --muted:#8CA091;
-    --accent:#86EFAC;
-    --accent-2:#34C77B;
-    --accent-dim: rgba(134,239,172,0.10);
+    --accent:#FF8A3D;
+    --accent-2:#E8672A;
+    --accent-dim: rgba(255,138,61,0.10);
     --warn:#FB8D8D;
     --maxw:1180px;
     --radius:16px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
-  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; position:relative;}
+  body::before{
+    content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background-image: radial-gradient(circle, rgba(255,138,61,0.10) 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 100%);
+  }
   h1,h2,h3{font-family:'Manrope',sans-serif;}
   .mono{font-family:'JetBrains Mono',monospace;}
   a{color:inherit; text-decoration:none;}
@@ -73,11 +79,21 @@
   @media(max-width:460px){ .wrap{padding:0 16px;} nav{height:56px;} .brand svg{height:17px;} .nav-cta{padding:7px 12px; font-size:12px;} .hamburger{width:30px; height:30px;} }
 
   .hero{position:relative; padding:60px 0 20px; overflow:hidden;}
-  .hero::before{content:""; position:absolute; width:600px; height:600px; border-radius:50%; left:-240px; top:-260px; background:radial-gradient(circle, rgba(134,239,172,0.12), transparent 70%); pointer-events:none;}
+  .hero::before{content:""; position:absolute; width:600px; height:600px; border-radius:50%; left:-240px; top:-260px; background:radial-gradient(circle, rgba(255,138,61,0.12), transparent 70%); pointer-events:none;}
+  .hero::after{content:""; position:absolute; width:500px; height:500px; border-radius:50%; right:-220px; top:40px; background:radial-gradient(circle, rgba(255,138,61,0.07), transparent 70%); pointer-events:none;}
   .hero-grid{display:grid; grid-template-columns:1fr 0.95fr; gap:52px; align-items:center; position:relative;}
   @media(max-width:940px){ .hero-grid{grid-template-columns:1fr;} }
 
-  .pill{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--accent); background:var(--accent-dim); border:1px solid rgba(134,239,172,0.25); padding:7px 14px; border-radius:100px; margin-bottom:22px;}
+  .hero-visual{position:relative; padding:26px 0 46px 0;}
+  .pnl-strip{margin-top:18px; padding-top:16px; border-top:1px solid var(--line);}
+  .pnl-strip .pl-row{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px;}
+  .pnl-strip .pl-lbl{font-family:'JetBrains Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:0.04em;}
+  .pnl-strip .pl-val{font-family:'JetBrains Mono',monospace; font-size:15px; font-weight:700; color:var(--accent);}
+  .pnl-strip .pl-bars{display:flex; gap:5px; align-items:flex-end; height:34px;}
+  .pnl-strip .pl-bars span{flex:1; border-radius:2px; background:var(--accent); opacity:0.6;}
+  @media(max-width:940px){ .hero-visual{padding:26px 0 40px 0;} }
+
+  .pill{display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--accent); background:var(--accent-dim); border:1px solid rgba(255,138,61,0.25); padding:7px 14px; border-radius:100px; margin-bottom:22px;}
   .pill .dot{width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent);}
 
   h1.hero-h{font-size:clamp(32px,4.8vw,52px); font-weight:800; line-height:1.08; letter-spacing:-0.02em; margin-bottom:20px;}
@@ -85,7 +101,7 @@
   .hero p.sub{font-size:16.5px; color:#B7C6BB; max-width:480px; margin-bottom:28px;}
 
   .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px;}
-  .btn-primary{background:var(--accent); color:#04150F; font-weight:700; font-size:15px; padding:14px 26px; border-radius:10px; box-shadow:0 16px 32px -14px rgba(134,239,172,0.5); transition:transform .15s ease;}
+  .btn-primary{background:var(--accent); color:#04150F; font-weight:700; font-size:15px; padding:14px 26px; border-radius:10px; box-shadow:0 16px 32px -14px rgba(255,138,61,0.5); transition:transform .15s ease;}
   .btn-primary:hover{transform:translateY(-2px);}
   .btn-ghost{border:1px solid var(--line); color:var(--ink); font-weight:600; font-size:14.5px; padding:13px 22px; border-radius:10px;}
   .btn-ghost:hover{border-color:#2c3a2c;}
@@ -106,11 +122,15 @@
   .sc-check{width:18px; height:18px; border-radius:50%; border:1.5px solid var(--accent); flex-shrink:0; margin-left:auto; position:relative; margin-top:2px;}
   .sc-check.done::after{content:""; position:absolute; left:3px; top:0; width:5px; height:9px; border-right:2px solid var(--accent); border-bottom:2px solid var(--accent); transform:rotate(40deg);}
 
-  .net-strip{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:22px 0; margin-top:48px;}
-  .net-strip .wrap{display:flex; align-items:center; justify-content:center; gap:36px; flex-wrap:wrap;}
-  .net-strip .lbl{font-size:12.5px; color:var(--muted); margin-right:6px;}
-  .net-item{display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#D3DCD6;}
-  .net-dot{width:8px; height:8px; border-radius:50%;}
+  .ticker-outer{border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin-top:48px; overflow:hidden; background:var(--panel); padding:16px 0;}
+  .ticker-track{display:flex; gap:48px; width:max-content; animation:ticker-scroll 28s linear infinite;}
+  @keyframes ticker-scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+  .tick-group{display:flex; align-items:center; gap:48px; white-space:nowrap;}
+  .tick-stat{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink);}
+  .tick-stat b{color:var(--accent);}
+  .tick-sep{width:1px; height:14px; background:var(--line);}
+  .tick-chain{font-size:12.5px; color:var(--muted); letter-spacing:0.04em;}
+  @media (prefers-reduced-motion: reduce){ .ticker-track{animation:none;} }
 
   section{padding:84px 0;}
   .sec-head{max-width:600px; margin:0 auto 46px; text-align:center;}
@@ -121,7 +141,10 @@
   /* playbook steps */
   .playbook{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;}
   @media(max-width:860px){ .playbook{grid-template-columns:1fr;} }
-  .pb-card{background:var(--panel); padding:30px 26px;}
+  .pb-card{background:var(--panel); padding:30px 26px; transition:background .2s ease;}
+  .pb-card:hover{background:var(--panel-2);}
+  .pb-icon{width:38px; height:38px; border-radius:10px; background:var(--accent-dim); display:flex; align-items:center; justify-content:center; margin-bottom:18px;}
+  .pb-icon svg{width:18px; height:18px; stroke:var(--accent);}
   .pb-num{font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--accent); margin-bottom:16px;}
   .pb-card h3{font-size:17px; font-weight:700; margin-bottom:10px;}
   .pb-card p{color:var(--muted); font-size:14px;}
@@ -148,11 +171,11 @@
   .badge-cell h3{font-size:15px; font-weight:700; margin-bottom:6px;}
   .badge-cell p{font-size:13px; color:var(--muted);}
 
-  .cashback{background:linear-gradient(120deg, #0E241A, #080C0A 70%); border:1px solid rgba(134,239,172,0.25); border-radius:22px; padding:56px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;}
+  .cashback{background:linear-gradient(120deg, #241408, #080C0A 70%); border:1px solid rgba(255,138,61,0.25); border-radius:22px; padding:56px; display:grid; grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;}
   @media(max-width:800px){ .cashback{grid-template-columns:1fr; padding:36px 26px; text-align:center;} .cashback p{margin-left:auto; margin-right:auto;} }
   .cashback h2{font-size:clamp(24px,3.4vw,34px); font-weight:800; margin-bottom:14px;}
   .cashback p{color:var(--muted); margin-bottom:24px; max-width:420px;}
-  .big-num{font-family:'JetBrains Mono',monospace; font-size:clamp(64px,9vw,104px); font-weight:700; color:var(--accent); line-height:1; text-align:center; text-shadow:0 0 44px rgba(134,239,172,0.4);}
+  .big-num{font-family:'JetBrains Mono',monospace; font-size:clamp(64px,9vw,104px); font-weight:700; color:var(--accent); line-height:1; text-align:center; text-shadow:0 0 44px rgba(255,138,61,0.4);}
   .big-num-l{text-align:center; color:var(--muted); font-size:13px; margin-top:8px;}
 
   .post-list{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
@@ -172,7 +195,7 @@
   .faq-a p{color:var(--muted); font-size:14px; padding-top:12px; max-width:640px;}
 
   .final-cta{position:relative; overflow:hidden; text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:60px 24px;}
-  .final-cta::before{content:""; position:absolute; width:460px; height:230px; left:50%; top:-130px; transform:translateX(-50%); background:radial-gradient(ellipse, rgba(134,239,172,0.16), transparent 70%); pointer-events:none;}
+  .final-cta::before{content:""; position:absolute; width:460px; height:230px; left:50%; top:-130px; transform:translateX(-50%); background:radial-gradient(ellipse, rgba(255,138,61,0.16), transparent 70%); pointer-events:none;}
   .final-cta h2{font-size:clamp(26px,4vw,38px); font-weight:800; margin-bottom:14px; position:relative;}
   .final-cta p{color:var(--muted); margin-bottom:28px; position:relative; max-width:440px; margin-left:auto; margin-right:auto;}
 
@@ -184,6 +207,7 @@
 
   :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
 </style>
+<meta name="google-site-verification" content="ou1lOuBUzwmfHWQ9CeHdJwpDNwmcPGIRPgCT9qHuFzk" />
 </head>
 <body>
 
@@ -244,6 +268,7 @@
           </div>
         </div>
 
+        <div class="hero-visual">
         <div class="session-card">
           <div class="float-badge"><div class="v mono">35%</div><div class="l">fee cashback</div></div>
           <div class="sc-head"><span>SESSION CHECKLIST</span><span>TODAY</span></div>
@@ -262,23 +287,26 @@
             <div class="sc-body"><b>Load presets for today's conditions</b><span>Aggressive for launches, conservative for size</span></div>
             <div class="sc-check"></div>
           </div>
-          <div class="sc-item">
+          <div class="sc-item" style="border-bottom:none; padding-bottom:6px;">
             <div class="sc-time">EOD</div>
             <div class="sc-body"><b>Log trades to the journal</b><span>Five minutes now saves guessing later</span></div>
             <div class="sc-check"></div>
           </div>
+          <div class="pnl-strip">
+            <div class="pl-row"><span class="pl-lbl">SESSION P&amp;L</span><span class="pl-val">+0.42 SOL</span></div>
+            <div class="pl-bars">
+              <span style="height:40%;"></span><span style="height:65%;"></span><span style="height:30%;"></span>
+              <span style="height:80%; opacity:0.9;"></span><span style="height:55%;"></span><span style="height:70%;"></span>
+              <span style="height:45%;"></span><span style="height:60%;"></span><span style="height:35%; opacity:0.9;"></span>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     </div>
 
-    <div class="net-strip">
-      <div class="wrap">
-        <span class="lbl">Trade across</span>
-        <div class="net-item"><span class="net-dot" style="background:#9945FF;"></span>Solana</div>
-        <div class="net-item"><span class="net-dot" style="background:#627EEA;"></span>Ethereum</div>
-        <div class="net-item"><span class="net-dot" style="background:#0052FF;"></span>Base</div>
-        <div class="net-item"><span class="net-dot" style="background:#F0B90B;"></span>BNB Chain</div>
-      </div>
+    <div class="ticker-outer">
+      <div class="ticker-track" id="tickerTrack"></div>
     </div>
   </section>
 
@@ -290,16 +318,19 @@
       </div>
       <div class="playbook">
         <div class="pb-card">
+          <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 12h6M12 9v6"/><circle cx="12" cy="12" r="9"/></svg></div>
           <div class="pb-num">BEFORE</div>
           <h3>Set limits while you're calm</h3>
           <p>Position size, daily loss limit, and which presets you'll use — decided before the first trade, not adjusted mid-session under pressure.</p>
         </div>
         <div class="pb-card">
+          <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
           <div class="pb-num">DURING</div>
           <h3>Execute against the plan</h3>
           <p>Use saved presets and pre-set exit orders instead of re-deciding variables on every single trade while price is moving.</p>
         </div>
         <div class="pb-card">
+          <div class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg></div>
           <div class="pb-num">AFTER</div>
           <h3>Log it before you forget why</h3>
           <p>A short note per trade — what you saw, what you did — turns a string of trades into something you can actually learn from later.</p>
@@ -485,6 +516,21 @@
 </footer>
 
 <script>
+<script>
+(function(){
+  var track = document.getElementById('tickerTrack');
+  if(!track) return;
+  var stats = [
+    '<span class="tick-stat">~<b>300ms</b> typical execution</span>',
+    '<span class="tick-stat"><b>35%</b> fee cashback via this link</span>',
+    '<span class="tick-stat"><b>4</b> networks, one login</span>',
+    '<span class="tick-stat">Self-custody — <b>your keys, your wallet</b></span>',
+    '<span class="tick-chain">SOL · ETH · BASE · BNB</span>'
+  ];
+  var group = '<div class="tick-group">' + stats.join('<span class="tick-sep"></span>') + '<span class="tick-sep"></span></div>';
+  track.innerHTML = group + group;
+})();
+
 (function(){
   var btn = document.getElementById('menuBtn');
   var panel = document.getElementById('mobilePanel');
